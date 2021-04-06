@@ -4,4 +4,6 @@ module Agentie_Imobiliara {
 	requires javafx.base;
 	requires javafx.fxml;
 	requires javafx.graphics;
+    //requires jfxrt;
+	//requires rt;
 }

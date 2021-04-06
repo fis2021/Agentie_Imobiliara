@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" output="target/classes" path="src/main/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
-		<attributes>
-			<attribute name="test" value="true"/>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-11">
-		<attributes>
-			<attribute name="module" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="module" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar" sourcepath="M2_REPO/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar" sourcepath="M2_REPO/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final-sources.jar"/>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-controls/15.0.1/javafx-controls-15.0.1.jar" sourcepath="M2_REPO/org/openjfx/javafx-controls/15.0.1/javafx-controls-15.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-controls/15.0.1/javafx-controls-15.0.1-win.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-graphics/15.0.1/javafx-graphics-15.0.1.jar" sourcepath="M2_REPO/org/openjfx/javafx-graphics/15.0.1/javafx-graphics-15.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-graphics/15.0.1/javafx-graphics-15.0.1-win.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-base/15.0.1/javafx-base-15.0.1.jar" sourcepath="M2_REPO/org/openjfx/javafx-base/15.0.1/javafx-base-15.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-base/15.0.1/javafx-base-15.0.1-win.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-fxml/15.0.1/javafx-fxml-15.0.1.jar" sourcepath="M2_REPO/org/openjfx/javafx-fxml/15.0.1/javafx-fxml-15.0.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/openjfx/javafx-fxml/15.0.1/javafx-fxml-15.0.1-win.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/dizitart/nitrite/3.4.3/nitrite-3.4.3.jar" sourcepath="M2_REPO/org/dizitart/nitrite/3.4.3/nitrite-3.4.3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" sourcepath="M2_REPO/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/h2database/h2-mvstore/1.4.200/h2-mvstore-1.4.200.jar" sourcepath="M2_REPO/com/h2database/h2-mvstore/1.4.200/h2-mvstore-1.4.200-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/objenesis/objenesis/2.6/objenesis-2.6.jar" sourcepath="M2_REPO/org/objenesis/objenesis/2.6/objenesis-2.6-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1.jar" sourcepath="M2_REPO/com/fasterxml/jackson/core/jackson-databind/2.10.1/jackson-databind-2.10.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1.jar" sourcepath="M2_REPO/com/fasterxml/jackson/core/jackson-core/2.10.1/jackson-core-2.10.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1.jar" sourcepath="M2_REPO/com/fasterxml/jackson/core/jackson-annotations/2.10.1/jackson-annotations-2.10.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jasypt/jasypt/1.9.3/jasypt-1.9.3.jar" sourcepath="M2_REPO/org/jasypt/jasypt/1.9.3/jasypt-1.9.3-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/squareup/okhttp3/okhttp/4.3.1/okhttp-4.3.1.jar" sourcepath="M2_REPO/com/squareup/okhttp3/okhttp/4.3.1/okhttp-4.3.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/squareup/okio/okio/2.4.1/okio-2.4.1.jar" sourcepath="M2_REPO/com/squareup/okio/okio/2.4.1/okio-2.4.1-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jetbrains/kotlin/kotlin-stdlib/1.3.61/kotlin-stdlib-1.3.61.jar" sourcepath="M2_REPO/org/jetbrains/kotlin/kotlin-stdlib/1.3.61/kotlin-stdlib-1.3.61-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50.jar" sourcepath="M2_REPO/org/jetbrains/kotlin/kotlin-stdlib-common/1.3.50/kotlin-stdlib-common-1.3.50-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/jetbrains/annotations/13.0/annotations-13.0.jar" sourcepath="M2_REPO/org/jetbrains/annotations/13.0/annotations-13.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/uk/co/jemos/podam/podam/7.2.3.RELEASE/podam-7.2.3.RELEASE.jar" sourcepath="M2_REPO/uk/co/jemos/podam/podam/7.2.3.RELEASE/podam-7.2.3.RELEASE-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0.jar" sourcepath="M2_REPO/net/jcip/jcip-annotations/1.0/jcip-annotations-1.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1.jar" sourcepath="M2_REPO/org/apache/commons/commons-lang3/3.8.1/commons-lang3-3.8.1-sources.jar"/>
 </classpath>
