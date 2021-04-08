@@ -1,11 +1,5 @@
-module Agentie_Imobiliara {
-	exports sample;
-
-	requires javafx.base;
-	requires javafx.fxml;
-	requires javafx.graphics;
-	requires nitrite;
-	requires javafx.controls;
-	//requires jfxrt;
-	//requires rt;
+module AgentieImobiliara {
+    requires nitrite;
+    requires javafx.controls;
+    requires javafx.fxml;
 }
