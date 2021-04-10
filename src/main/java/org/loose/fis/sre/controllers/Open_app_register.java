@@ -1,6 +1,7 @@
 package org.loose.fis.sre.controllers;
 
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,7 +9,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+
 public class Open_app_register {
+    @FXML
     public void handleOpenRegister()
     {
         Parent root;
@@ -24,6 +27,7 @@ public class Open_app_register {
             e.printStackTrace();
         }
     }
+    @FXML
     public void handleOpenLogin()
     {
         Parent root;

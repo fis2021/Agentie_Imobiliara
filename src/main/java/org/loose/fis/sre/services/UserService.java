@@ -2,6 +2,7 @@ package org.loose.fis.sre.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.loose.fis.sre.exceptions.IncorectCredentials;
 import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.sre.model.User;
 
@@ -57,5 +58,13 @@ public class UserService {
         return md;
     }
 
-
+    public static void CheckUserCredentials(String username, String password, String role) throws IncorectCredentials
+    {
+        for (User user : userRepository.find()) {
+            if (Objects.equals(username, user.getUsername())==false || Objects.equals(role,user.getRole())==false)
+            {
+                throw new IncorectCredentials(username);
+            }
+        }
+    }
 }

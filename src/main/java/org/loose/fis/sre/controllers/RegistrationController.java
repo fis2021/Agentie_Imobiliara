@@ -1,12 +1,18 @@
 package org.loose.fis.sre.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.sre.services.UserService;
+
+import java.io.IOException;
 
 public class RegistrationController {
 
@@ -32,7 +38,18 @@ public class RegistrationController {
     public void handleRegisterAction() {
         try {
             UserService.addUser(fullNameField.getText(),phoneNumberField.getText(),usernameField.getText(), passwordField.getText(), (String) role.getValue());
-            registrationMessage.setText("Account created successfully!");
+            Parent root;
+            try {
+                root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
+                Stage stage=new Stage();
+                stage.setTitle("Agentie Imobiliara");
+                stage.setScene(new Scene(root,400,375));
+                stage.show();
+            }
+            catch(IOException e)
+            {
+                e.printStackTrace();
+            }
         } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
         }
