@@ -1,12 +1,12 @@
-package controllers;
+package org.loose.fis.sre.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import exceptions.UserNameAlreadyExistsException;
-import services.UserService;
+import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.services.UserService;
 
 public class RegistrationController {
 
@@ -33,9 +33,8 @@ public class RegistrationController {
         try {
             UserService.addUser(fullNameField.getText(),phoneNumberField.getText(),usernameField.getText(), passwordField.getText(), (String) role.getValue());
             registrationMessage.setText("Account created successfully!");
-        } catch (UserNameAlreadyExistsException e) {
+        } catch (UsernameAlreadyExistsException e) {
             registrationMessage.setText(e.getMessage());
         }
     }
 }
-

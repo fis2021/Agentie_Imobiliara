@@ -1,15 +1,16 @@
-package services;
+package org.loose.fis.sre.services;
+
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
-import exceptions.UserNameAlreadyExistsException;
-import model.User;
+import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.model.User;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
-import static services.FileSystemService.getPathToFile;
+import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
 
 public class UserService {
 
@@ -23,15 +24,15 @@ public class UserService {
         userRepository = database.getRepository(User.class);
     }
 
-    public static void addUser(String fullName,String phoneNumber,String username, String password, String role) throws UserNameAlreadyExistsException {
+    public static void addUser(String fullName,String phoneNumber,String username, String password, String role) throws UsernameAlreadyExistsException {
         checkUserDoesNotAlreadyExist(username);
         userRepository.insert(new User(fullName,phoneNumber,username, encodePassword(username, password), role));
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UserNameAlreadyExistsException {
+    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
-                throw new UserNameAlreadyExistsException(username);
+                throw new UsernameAlreadyExistsException(username);
         }
     }
 
