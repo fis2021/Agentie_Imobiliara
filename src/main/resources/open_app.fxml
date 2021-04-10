@@ -16,7 +16,7 @@
         <Button onAction="#handleOpenRegister" prefHeight="49.0" prefWidth="87.0" text="Register" />
     </HBox>
     <HBox alignment="bottom_right" prefHeight="34.0" prefWidth="70.0" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="4">
-        <Button  prefHeight="49.0" prefWidth="87.0" text="Login" />
+        <Button onAction="#handleOpenLogin" prefHeight="49.0" prefWidth="87.0" text="Login" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />
