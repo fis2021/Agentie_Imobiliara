@@ -34,8 +34,36 @@ public class LoginController {
     @FXML
     public void handleLoginAction() {
         try {
-            UserService.CheckUserCredentials(usernameField.getText(), passwordField.getText(), (String) role.getValue());
-            loginMessage.setText("Login succede!");
+            Parent root;
+            int ok=UserService.CheckUserCredentials(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            if(ok==1)
+            {
+                try {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("buyer_menu.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Agentie Imobiliara");
+                    stage.setScene(new Scene(root, 600, 575));
+                    stage.show();
+                }
+                catch(IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+            else if(ok==2)
+            {
+                try {
+                    root = FXMLLoader.load(getClass().getClassLoader().getResource("agent_menu.fxml"));
+                    Stage stage = new Stage();
+                    stage.setTitle("Agentie Imobiliara");
+                    stage.setScene(new Scene(root, 600, 575));
+                    stage.show();
+                }
+                catch(IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
         } catch (IncorectCredentials e) {
             loginMessage.setText(e.getMessage());
         }

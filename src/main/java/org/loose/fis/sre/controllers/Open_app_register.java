@@ -19,7 +19,7 @@ public class Open_app_register {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("register.fxml"));
             Stage stage=new Stage();
             stage.setTitle("Agentie Imobiliara");
-            stage.setScene(new Scene(root,400,375));
+            stage.setScene(new Scene(root,600,575));
             stage.show();
         }
         catch(IOException e)
@@ -35,7 +35,7 @@ public class Open_app_register {
             root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
             Stage stage=new Stage();
             stage.setTitle("Agentie Imobiliara");
-            stage.setScene(new Scene(root,400,375));
+            stage.setScene(new Scene(root,600,575));
             stage.show();
         }
         catch(IOException e)
