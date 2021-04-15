@@ -58,13 +58,22 @@ public class UserService {
         return md;
     }
 
-    public static void CheckUserCredentials(String username, String password, String role) throws IncorectCredentials
+    public static int CheckUserCredentials(String username, String password, String role) throws IncorectCredentials
     {
+        String pass=encodePassword(username,password);
         for (User user : userRepository.find()) {
-            if (Objects.equals(username, user.getUsername())==false || Objects.equals(role,user.getRole())==false)
+            if (Objects.equals(username, user.getUsername()) && Objects.equals(role,user.getRole()) && pass.equals(user.getPassword()))
             {
-                throw new IncorectCredentials(username);
+                if(role.equals("Buyer"))
+                {
+                    return 1;
+                }
+                else
+                {
+                    return 2;
+                }
             }
         }
+        throw new IncorectCredentials(username);
     }
 }

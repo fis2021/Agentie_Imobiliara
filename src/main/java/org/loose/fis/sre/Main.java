@@ -20,7 +20,7 @@ public class Main extends Application {
         UserService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("open_app.fxml"));
         primaryStage.setTitle("Agentie imobiliara");
-        primaryStage.setScene(new Scene(root,400, 375));
+        primaryStage.setScene(new Scene(root,600, 575));
         primaryStage.show();
     }
 
