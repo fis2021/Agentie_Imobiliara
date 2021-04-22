@@ -36,6 +36,7 @@ public class LoginController {
         try {
             Parent root;
             int ok=UserService.CheckUserCredentials(usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            loginMessage.setText("Login succeeded!");
             if(ok==1)
             {
                 try {
