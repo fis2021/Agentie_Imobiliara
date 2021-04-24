@@ -43,20 +43,4 @@ public class Open_app_register {
             e.printStackTrace();
         }
     }
-    @FXML
-    public void handleBook()
-    {
-        Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getClassLoader().getResource("book.fxml"));
-            Stage stage=new Stage();
-            stage.setTitle("Agentie Imobiliara");
-            stage.setScene(new Scene(root,600,575));
-            stage.show();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-    }
 }
