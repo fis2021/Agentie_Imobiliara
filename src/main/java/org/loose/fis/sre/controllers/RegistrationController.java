@@ -38,6 +38,7 @@ public class RegistrationController {
     public void handleRegisterAction() {
         try {
             UserService.addUser(fullNameField.getText(),phoneNumberField.getText(),usernameField.getText(), passwordField.getText(), (String) role.getValue());
+            registrationMessage.setText("Account created successfully!");
             Parent root;
             try {
                 root = FXMLLoader.load(getClass().getClassLoader().getResource("login.fxml"));
