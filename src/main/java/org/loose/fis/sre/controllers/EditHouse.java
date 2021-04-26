@@ -36,17 +36,21 @@ public class EditHouse {
 
     @FXML
     public void handleAddHouse() {
-                try {
-                    root = FXMLLoader.load(getClass().getClassLoader().getResource("addhouse.fxml"));
-                    Stage stage = new Stage();
-                    stage.setTitle("Agentie Imobiliara");
-                    stage.setScene(new Scene(root, 600, 575));
-                    stage.show();
-                }
-                catch(IOException e)
-                {
-                    e.printStackTrace();
-                }
+
+
+        try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("addhouse.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Agentie Imobiliara");
+            stage.setScene(new Scene(root, 600, 575));
+            stage.show();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 }
+
