@@ -6,7 +6,8 @@
 <?import javafx.scene.text.*?>
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
-          vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal">
+          vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.loose.fis.sre.controllers.AddhouseController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
@@ -16,7 +17,7 @@
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <TextField fx:id="Size" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <Label text="Size:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Label text="Size of the house (m^2):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
     <TextField fx:id="Rooms" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <Label text="Number of rooms:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
@@ -31,6 +32,6 @@
     <Label text="Any special features:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
     <Text fx:id="addhouseMessage" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
-        <Button   text="Save house"/>
+        <Button  onAction="#handleAddHouseAction" text="Save house"/>
     </HBox>
 </GridPane>

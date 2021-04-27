@@ -6,15 +6,15 @@ import java.util.Objects;
 
 public class House {
     @Id
-    private String Adresa;
-    private Integer Size;
-    private Integer Rooms;
-    private Integer Baths;
-    private Integer Floors;
+    private String Address;
+    private String Size;
+    private String Rooms;
+    private String Baths;
+    private String Floors;
     private String Special;
 
-    public House(String adresa, Integer size, Integer rooms, Integer baths, Integer floors, String special) {
-        Adresa = adresa;
+    public House(String address, String size, String rooms, String baths, String floors, String special) {
+        Address = address;
         Size = size;
         Rooms = rooms;
         Baths = baths;
@@ -22,19 +22,19 @@ public class House {
         Special = special;
     }
 
-    public String getAdresa() {
-        return Adresa;
+    public String getAddress() {
+        return Address;
     }
 
-    public Integer getRooms() {
+    public String getRooms() {
         return Rooms;
     }
 
-    public Integer getBaths() {
+    public String getBaths() {
         return Baths;
     }
 
-    public Integer getFloors() {
+    public String getFloors() {
         return Floors;
     }
 
@@ -42,23 +42,23 @@ public class House {
         return Special;
     }
 
-    public void setAdresa(String adresa) {
-        Adresa = adresa;
+    public void setAddress(String address) {
+        Address = address;
     }
 
-    public void setSize(Integer size) {
+    public void setSize(String size) {
         Size = size;
     }
 
-    public void setRooms(Integer rooms) {
+    public void setRooms(String rooms) {
         Rooms = rooms;
     }
 
-    public void setBaths(Integer baths) {
+    public void setBaths(String baths) {
         Baths = baths;
     }
 
-    public void setFloors(Integer floors) {
+    public void setFloors(String floors) {
         Floors = floors;
     }
 
@@ -71,18 +71,18 @@ public class House {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         House house = (House) o;
-        return Objects.equals(Adresa, house.Adresa) && Objects.equals(Size, house.Size) && Objects.equals(Rooms, house.Rooms) && Objects.equals(Baths, house.Baths) && Objects.equals(Floors, house.Floors) && Objects.equals(Special, house.Special);
+        return Objects.equals(Address, house.Address) && Objects.equals(Size, house.Size) && Objects.equals(Rooms, house.Rooms) && Objects.equals(Baths, house.Baths) && Objects.equals(Floors, house.Floors) && Objects.equals(Special, house.Special);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(Adresa, Size, Rooms, Baths, Floors, Special);
+        return Objects.hash(Address, Size, Rooms, Baths, Floors, Special);
     }
 
     @Override
     public String toString() {
         return "House{" +
-                "Adresa='" + Adresa + '\'' +
+                "Address='" + Address + '\'' +
                 ", Size=" + Size +
                 ", Rooms=" + Rooms +
                 ", Baths=" + Baths +

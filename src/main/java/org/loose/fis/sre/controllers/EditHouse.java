@@ -37,6 +37,7 @@ public class EditHouse {
     @FXML
     public void handleAddHouse() {
 
+
         try {
             Parent root;
             root = FXMLLoader.load(getClass().getClassLoader().getResource("addhouse.fxml"));
@@ -52,3 +53,4 @@ public class EditHouse {
 
     }
 }
+
