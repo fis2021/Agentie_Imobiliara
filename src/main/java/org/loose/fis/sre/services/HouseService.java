@@ -2,6 +2,7 @@ package org.loose.fis.sre.services;
 
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
+import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 import org.loose.fis.sre.exceptions.AddressAlreadyExistsException;
 import org.loose.fis.sre.model.House;
 import org.loose.fis.sre.model.User;
@@ -33,7 +34,19 @@ public class HouseService {
         checkAddressDoesNotAlreadyExist(Address);
         houseRepository.insert(new House(Address,Size,Rooms, Baths, Floors,Special));
     }
-
+    public static void searchHouse(String address) throws HouseDoesNotExistsException
+    {
+        for (House house : houseRepository.find())
+        {
+            if(Objects.equals(address, house.getAddress()))
+            {
+                house.toString();
+            }
+              else{
+                throw new HouseDoesNotExistsException(address);
+            }
+        }
+    }
     private static void checkAddressDoesNotAlreadyExist(String address) throws AddressAlreadyExistsException {
         for (House house : houseRepository.find()) {
             if (Objects.equals(address, house.getAddress()))
