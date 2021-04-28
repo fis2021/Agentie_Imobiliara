@@ -52,5 +52,23 @@ public class EditHouse {
         }
 
     }
+    @FXML
+    public void handleEditHouse() {
+
+
+        try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("edithouse.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Agentie Imobiliara");
+            stage.setScene(new Scene(root, 600, 575));
+            stage.show();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
 }
 
