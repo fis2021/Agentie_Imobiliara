@@ -34,6 +34,23 @@ public class HouseService {
         checkAddressDoesNotAlreadyExist(Address);
         houseRepository.insert(new House(Address,Size,Rooms, Baths, Floors,Special));
     }
+    public static void editHouse(String Address,String Size,String Rooms, String Baths,String Floors, String Special) throws HouseDoesNotExistsException
+    {
+        for (House house : houseRepository.find())
+        {
+            if(Objects.equals(Address, house.getAddress())) {
+                house.setAddress(Address);
+                house.setSize(Size);
+                house.setRooms(Rooms);
+                house.setBaths(Baths);
+                house.setFloors(Floors);
+                house.setSpecial(Special);
+                houseRepository.update(house);
+                return;
+            }
+        }
+        throw new HouseDoesNotExistsException(Address);
+    }
     public static String searchHouse(String address) throws HouseDoesNotExistsException
     {
 

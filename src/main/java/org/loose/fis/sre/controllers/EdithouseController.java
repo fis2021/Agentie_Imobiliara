@@ -37,7 +37,7 @@ public class EdithouseController {
     public void handleEditHouseAction(){
         try
         {
-            HouseService.searchHouse(Address.getText());
+            HouseService.editHouse(Address.getText(),Size.getText(),Rooms.getText(),Baths.getText(),Floors.getText(),Special.getText());
             edithouseMessage.setText("Changes saved successfully!");
         }
         catch (HouseDoesNotExistsException e) {
@@ -48,7 +48,7 @@ public class EdithouseController {
     public void handleSearchHouseAction(){
         try
         {
-            //HouseService.searchHouse(Address.getText());
+
             edithouseMessage.setText(HouseService.searchHouse(Address.getText()));
         }
         catch (HouseDoesNotExistsException e) {

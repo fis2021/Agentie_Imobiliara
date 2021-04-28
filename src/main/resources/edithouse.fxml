@@ -33,7 +33,7 @@
     <Label text="Any special features:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
     <Text fx:id="edithouseMessage" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
-        <Button   text="Save changes"/>
+        <Button  onAction="#handleEditHouseAction" text="Save changes"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
         <Button   onAction="#handleSearchHouseAction" text="Search house"/>
