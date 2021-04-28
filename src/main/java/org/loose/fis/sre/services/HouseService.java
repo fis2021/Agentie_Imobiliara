@@ -29,6 +29,7 @@ public class HouseService {
     }
 
     public static void addHouse(String Address,String Size,String Rooms, String Baths,String Floors, String Special) throws AddressAlreadyExistsException {
+
         checkAddressDoesNotAlreadyExist(Address);
         houseRepository.insert(new House(Address,Size,Rooms, Baths, Floors,Special));
     }
