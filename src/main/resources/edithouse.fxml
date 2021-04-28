@@ -7,7 +7,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
           vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          >
+          fx:controller="org.loose.fis.sre.controllers.EdithouseController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
@@ -36,6 +36,6 @@
         <Button   text="Save changes"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
-        <Button   text="Search house"/>
+        <Button   onAction="#handleSearchHouseAction" text="Search house"/>
     </HBox>
 </GridPane>

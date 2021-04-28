@@ -44,4 +44,15 @@ public class EdithouseController {
             edithouseMessage.setText(e.getMessage());
         }
     }
+    @FXML
+    public void handleSearchHouseAction(){
+        try
+        {
+            //HouseService.searchHouse(Address.getText());
+            edithouseMessage.setText(HouseService.searchHouse(Address.getText()));
+        }
+        catch (HouseDoesNotExistsException e) {
+            edithouseMessage.setText(e.getMessage());
+        }
+    }
 }

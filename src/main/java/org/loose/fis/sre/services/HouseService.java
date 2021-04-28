@@ -34,18 +34,16 @@ public class HouseService {
         checkAddressDoesNotAlreadyExist(Address);
         houseRepository.insert(new House(Address,Size,Rooms, Baths, Floors,Special));
     }
-    public static void searchHouse(String address) throws HouseDoesNotExistsException
+    public static String searchHouse(String address) throws HouseDoesNotExistsException
     {
+
         for (House house : houseRepository.find())
         {
-            if(Objects.equals(address, house.getAddress()))
-            {
-                house.toString();
-            }
-              else{
-                throw new HouseDoesNotExistsException(address);
+            if(Objects.equals(address, house.getAddress())) {
+                return house.toString();
             }
         }
+        throw new HouseDoesNotExistsException(address);
     }
     private static void checkAddressDoesNotAlreadyExist(String address) throws AddressAlreadyExistsException {
         for (House house : houseRepository.find()) {
