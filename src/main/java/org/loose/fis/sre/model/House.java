@@ -22,6 +22,9 @@ public class House {
         Special = special;
     }
 
+    public House() {
+    }
+
     public String getAddress() {
         return Address;
     }

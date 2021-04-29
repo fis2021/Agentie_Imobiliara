@@ -1,15 +1,19 @@
 package org.loose.fis.sre.controllers;
+import org.dizitart.no2.Nitrite;
+import org.dizitart.no2.objects.ObjectRepository;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import org.loose.fis.sre.model.House;
 
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.AddressAlreadyExistsException;
 import org.loose.fis.sre.services.HouseService;
+
 
 public class AddhouseController {
 
@@ -27,6 +31,7 @@ public class AddhouseController {
     private TextField Floors;
     @FXML
     private TextField Special;
+
 
     @FXML
     public void handleAddHouseAction(){
