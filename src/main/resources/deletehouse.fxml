@@ -20,6 +20,6 @@
         <Button  onAction="#handleDeleteHouseAction" text="Delete house"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
-        <Button   onAction="#handleSearchHouseAction" text="Search house"/>
+        <Button   onAction="#handleSearchHouseAction" text="Search  house"/>
     </HBox>
 </GridPane>
