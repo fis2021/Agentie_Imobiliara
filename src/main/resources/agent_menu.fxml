@@ -18,7 +18,7 @@
         <Button prefHeight="59.0" prefWidth="164.0" onAction="#handleEditHouse" text="Edit house" />
     </HBox>
     <HBox alignment="bottom_right" prefHeight="54.0" prefWidth="162.0" spacing="10" GridPane.rowIndex="5">
-        <Button prefHeight="59.0" prefWidth="164.0" text="Delete house" />
+        <Button prefHeight="59.0" prefWidth="164.0"  onAction="#handleDeleteHouse" text="Delete house" />
     </HBox>
     <HBox alignment="bottom_right" prefHeight="54.0" prefWidth="162.0" spacing="10" GridPane.rowIndex="6">
         <Button prefHeight="59.0" prefWidth="164.0" text="See bookings" />
