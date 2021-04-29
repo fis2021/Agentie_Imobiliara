@@ -1,0 +1,24 @@
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
+          vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
+          fx:controller="org.loose.fis.sre.controllers.EdithouseController">
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+    <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+    <Text id="title-text1" text="Delete a house" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+    <TextField fx:id="Address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
+        <Button  onAction="#handleEditHouseAction" text="Delete house"/>
+    </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
+        <Button   onAction="#handleSearchHouseAction" text="Search house"/>
+    </HBox>
+</GridPane>
