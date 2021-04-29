@@ -51,6 +51,18 @@ public class HouseService {
         }
         throw new HouseDoesNotExistsException(Address);
     }
+    public static void deleteHouse(String Address) throws HouseDoesNotExistsException
+    {
+        for (House house : houseRepository.find())
+        {
+            if(Objects.equals(Address, house.getAddress())) {
+
+                houseRepository.remove(house);
+                return;
+            }
+        }
+        throw new HouseDoesNotExistsException(Address);
+    }
     public static String searchHouse(String address) throws HouseDoesNotExistsException
     {
 
