@@ -36,7 +36,17 @@ public class UserService {
                 throw new UsernameAlreadyExistsException(username);
         }
     }
-
+    public static void checkUsername(String username) throws IncorectCredentials
+    {
+        for(User user : userRepository.find())
+        {
+            if(Objects.equals(username,user.getUsername()))
+            {
+                return;
+            }
+        }
+        throw new IncorectCredentials(username);
+    }
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));

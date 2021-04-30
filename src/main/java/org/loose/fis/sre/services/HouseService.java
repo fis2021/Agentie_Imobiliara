@@ -80,4 +80,11 @@ public class HouseService {
                 throw new AddressAlreadyExistsException(address);
         }
     }
+    public static void checkAddressDoesExist(String address) throws HouseDoesNotExistsException {
+        for (House house : houseRepository.find()) {
+            if (Objects.equals(address, house.getAddress()))
+                return;
+        }
+        throw new HouseDoesNotExistsException(address);
+    }
 }

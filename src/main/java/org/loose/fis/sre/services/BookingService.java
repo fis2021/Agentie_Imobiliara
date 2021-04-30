@@ -1,10 +1,12 @@
 package org.loose.fis.sre.services;
-import org.loose.fis.sre.services.HouseService;
+import org.loose.fis.sre.services.UserService;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.loose.fis.sre.model.Booking;
+import org.loose.fis.sre.model.User;
 import org.loose.fis.sre.model.House;
 import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
+import org.loose.fis.sre.exceptions.IncorectCredentials;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 
 import java.nio.charset.StandardCharsets;
@@ -29,10 +31,12 @@ public class BookingService {
     {
         return bookingRepository;
     }
-    public static void addBooking(String address,String day,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException//, HouseDoesNotExistsException
+    public static void addBooking(String address,String day,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException
     {
         checkBookingDoesNotAlreadyExist(day,hour,agent_book);
         //checkAddressDoesNotAlreadyExist(address);
+        UserService.checkUsername(user);
+        HouseService.checkAddressDoesExist(address);
         bookingRepository.insert(new Booking(address,day,hour,agent_book,special_req,user));
     }
 
