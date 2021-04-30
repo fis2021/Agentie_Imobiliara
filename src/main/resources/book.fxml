@@ -10,10 +10,12 @@
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
-    <Text id="title-text" text="Agentie Imobiliara" GridPane.columnIndex="0" GridPane.columnSpan="2"
+    <Text id="title-text" text="Agentie Imobiliara" GridPane.columnIndex="0" GridPane.columnSpan="1"
           GridPane.rowIndex="0"/>
-    <Text id="sub-title-text" text="Book a visit" GridPane.columnIndex="1" GridPane.columnSpan="3"
+    <Text id="sub-title-text" text="Book a visit" GridPane.columnIndex="1" GridPane.columnSpan="2"
           GridPane.rowIndex="1"/>
+    <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
     <Label text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
 
     <ChoiceBox fx:id="day" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">

@@ -3,12 +3,13 @@ package org.loose.fis.sre.services;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.loose.fis.sre.model.Booking;
+import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 import java.util.Objects;
 
-import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
+import static org.loose.fis.sre.services.FileSystemService.getPathToBooking;
 
 public class BookingService {
 
@@ -16,7 +17,7 @@ public class BookingService {
 
     public static void initDatabase() {
         Nitrite database = Nitrite.builder()
-                .filePath(getPathToFile("booking.db").toFile())
+                .filePath(getPathToBooking("booking-database.db").toFile())
                 .openOrCreate("agent_imb", "agent_imob");
 
         bookingRepository = database.getRepository(Booking.class);
