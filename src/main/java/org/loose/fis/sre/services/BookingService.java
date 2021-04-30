@@ -22,8 +22,19 @@ public class BookingService {
 
         bookingRepository = database.getRepository(Booking.class);
     }
-   /* public static void addBooking(String day,String hour,String agent_book,String special_req)
+    public static ObjectRepository<Booking> getBookingRepository()
     {
-        bookingepository.insert(new Booking(day,hour,agent_book,special_req));
-    }*/
+        return bookingRepository;
+    }
+    public static void addBooking(String address,String day,String hour, String agent_book, String special_req) throws BookingAlreadyExistsException
+    {
+        checkBookingDoesNotAlreadyExist(day,hour,agent_book);
+        bookingRepository.insert(new Booking(address,day,hour,agent_book,special_req));
+    }
+    private static void checkBookingDoesNotAlreadyExist(String day,String hour,String agent_book) throws BookingAlreadyExistsException {
+        for (Booking booking : bookingRepository.find()) {
+            if (Objects.equals(day, booking.getDay()) && Objects.equals(hour, booking.getHour()) && Objects.equals(agent_book, booking.getAgent_book()))
+                throw new BookingAlreadyExistsException(day,hour,agent_book);
+        }
+    }
 }
