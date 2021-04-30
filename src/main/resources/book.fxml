@@ -6,7 +6,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
           vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
->
+          fx:controller="org.loose.fis.sre.controllers.BookingController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
@@ -31,6 +31,6 @@
     <TextField fx:id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
     <Text fx:id="make_bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-        <Button   text="Save booking"/>
+        <Button  onAction="#handleBookingAction" text="Save booking"/>
     </HBox>
 </GridPane>
