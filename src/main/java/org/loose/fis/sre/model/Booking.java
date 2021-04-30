@@ -15,8 +15,10 @@ public class Booking {
     private String special_req;
     private String accept_booking;
     private String rejection_message;
+    private String user;
 
-    public Booking(String address,String day,String hour, String agent_book, String special_req) {
+    public Booking(String address,String day,String hour, String agent_book, String special_req,String user) {
+        this.user=user;
         this.address = address;
         this.day = day;
         this.hour = hour;
@@ -25,6 +27,19 @@ public class Booking {
         this.accept_booking="rejected";
         this.rejection_message=" ";
     }
+    public Booking()
+    {
+
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
     public String getAddress() {
         return address;
     }

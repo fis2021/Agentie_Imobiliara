@@ -7,17 +7,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.loose.fis.sre.model.Booking;
+import org.loose.fis.sre.controllers.LoginController;
 
 import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
+import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 import org.loose.fis.sre.services.BookingService;
 
 
 public class BookingController {
-
     @FXML
     private Text make_bookingMessage;
     @FXML
@@ -30,6 +31,8 @@ public class BookingController {
     private ChoiceBox hour;
     @FXML
     private ChoiceBox agent_book;
+    @FXML
+    private TextField username;
 
     @FXML
     public void initialize() {
@@ -43,11 +46,15 @@ public class BookingController {
     public void handleBookingAction(){
         try
         {
-            BookingService.addBooking(address.getText(),(String) day.getValue(),(String) hour.getValue(),(String) agent_book.getValue(),special_req.getText());
+            BookingService.addBooking(address.getText(),(String) day.getValue(),(String) hour.getValue(),
+                    (String) agent_book.getValue(),special_req.getText(),username.getText());
             make_bookingMessage.setText("Booking saved successfully!");
         }
         catch (BookingAlreadyExistsException e) {
             make_bookingMessage.setText(e.getMessage());
-        }
+       }
+        /*catch (HouseDoesNotExistsException e) {
+            make_bookingMessage.setText(e.getMessage());
+        }*/
     }
 }
