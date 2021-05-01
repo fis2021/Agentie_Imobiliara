@@ -5,7 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700.0" vgap="11" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700.0" vgap="11" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="org.loose.fis.sre.controllers.BuyerManuController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
@@ -14,7 +15,7 @@
         <Button prefHeight="59.0" prefWidth="164.0" text="See houses" />
     </HBox>
     <HBox alignment="bottom_right" prefHeight="54.0" prefWidth="162.0" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
-        <Button prefHeight="59.0" prefWidth="164.0" text="See previous bookings" />
+        <Button prefHeight="59.0" prefWidth="164.0" onAction="#handlebook" text="See previous bookings" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />

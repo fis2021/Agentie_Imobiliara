@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import org.loose.fis.sre.services.FileSystemService;
 import org.loose.fis.sre.services.UserService;
 import org.loose.fis.sre.services.HouseService;
+import org.loose.fis.sre.services.BookingService;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -20,6 +21,7 @@ public class Main extends Application {
         initDirectory();
         UserService.initDatabase();
         HouseService.initDatabase();
+        BookingService.initDatabase();
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("open_app.fxml"));
         primaryStage.setTitle("Agentie imobiliara");
         primaryStage.setScene(new Scene(root,600, 575));
@@ -33,6 +35,9 @@ public class Main extends Application {
         Path houseHomePath = FileSystemService.HOUSE_HOME_PATH;
         if(!Files.exists(houseHomePath))
             houseHomePath.toFile().mkdirs();
+        Path bookingHomePath = FileSystemService.BOOKING_HOME_PATH;
+        if(!Files.exists(bookingHomePath))
+            bookingHomePath.toFile().mkdirs();
     }
 
 
