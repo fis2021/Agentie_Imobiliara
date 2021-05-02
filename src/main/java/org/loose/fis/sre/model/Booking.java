@@ -10,6 +10,8 @@ public class Booking {
     @Id
     private String address;
     private String day;
+    private String month;
+    private String year;
     private String hour;
     private String agent_book;
     private String special_req;
@@ -17,10 +19,12 @@ public class Booking {
     private String rejection_message;
     private String user;
 
-    public Booking(String address,String day,String hour, String agent_book, String special_req,String user) {
+    public Booking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) {
         this.user=user;
         this.address = address;
         this.day = day;
+        this.month = month;
+        this.year = year;
         this.hour = hour;
         this.agent_book = agent_book;
         this.special_req = special_req;
@@ -95,16 +99,32 @@ public class Booking {
         this.rejection_message = rejection_message;
     }
 
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
     public boolean equals(Object object) {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         if (!super.equals(object)) return false;
         Booking booking = (Booking) object;
-        return address.equals(booking.address) && day.equals(booking.day) && hour.equals(booking.hour) && agent_book.equals(booking.agent_book) && special_req.equals(booking.special_req) && accept_booking.equals(booking.accept_booking) && rejection_message.equals(booking.rejection_message);
+        return address.equals(booking.address) && day.equals(booking.day) && month.equals(booking.month) && year.equals(booking.year) && hour.equals(booking.hour) && agent_book.equals(booking.agent_book) && special_req.equals(booking.special_req) && accept_booking.equals(booking.accept_booking) && rejection_message.equals(booking.rejection_message) && user.equals(booking.user);
     }
 
     public int hashCode() {
-        return Objects.hash(super.hashCode(), address, day, hour, agent_book, special_req, accept_booking, rejection_message);
+        return Objects.hash(super.hashCode(), address, day, month, year, hour, agent_book, special_req, accept_booking, rejection_message, user);
     }
 
     @java.lang.Override
@@ -112,11 +132,14 @@ public class Booking {
         return "Booking{" +
                 "address='" + address + '\'' +
                 ", day='" + day + '\'' +
+                ", month='" + month + '\'' +
+                ", year='" + year + '\'' +
                 ", hour='" + hour + '\'' +
                 ", agent_book='" + agent_book + '\'' +
                 ", special_req='" + special_req + '\'' +
                 ", accept_booking='" + accept_booking + '\'' +
                 ", rejection_message='" + rejection_message + '\'' +
+                ", user='" + user + '\'' +
                 '}';
     }
 }
