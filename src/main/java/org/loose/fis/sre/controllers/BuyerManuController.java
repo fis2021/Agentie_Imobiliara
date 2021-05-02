@@ -10,10 +10,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
 import org.loose.fis.sre.services.BookingService;
+import org.loose.fis.sre.services.HouseService;
 
 import java.io.IOException;
 
 public class BuyerManuController {
+
 
     @FXML
     public void handlebook() {
@@ -30,4 +32,22 @@ public class BuyerManuController {
         }
 
     }
+    @FXML
+    public void SeeHouses() {
+
+        try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("see_houses.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Agentie Imobiliara");
+            stage.setScene(new Scene(root, 600, 575));
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

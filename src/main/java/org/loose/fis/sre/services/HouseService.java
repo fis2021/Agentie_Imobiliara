@@ -28,6 +28,17 @@ public class HouseService {
     {
         return houseRepository;
     }
+    public static String  seeHouses( )
+    {
+         String s="";
+        for (House house : houseRepository.find())
+        {
+
+                s = s + house.toString();
+                s = s + "\n";
+        }
+        return s;
+    }
 
     public static void addHouse(String Address,String Size,String Rooms, String Baths,String Floors, String Special) throws AddressAlreadyExistsException {
 
