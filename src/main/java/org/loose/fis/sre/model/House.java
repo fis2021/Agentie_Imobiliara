@@ -86,8 +86,8 @@ public class House {
     public String toString() {
         return
                 "Address='" + Address  +
-                ", Size=" + Size +
-                ", Rooms=" + Rooms +
+                ", Size= " + Size +
+                ", Rooms=\" + Rooms +
                 ", Baths=" + Baths +
                 ", Floors=" + Floors +
                 ", Special=" + Special;
