@@ -84,13 +84,12 @@ public class House {
 
     @Override
     public String toString() {
-        return "House{" +
-                "Address='" + Address + '\'' +
-                ", Size=" + Size +
-                ", Rooms=" + Rooms +
+        return
+                "Address='" + Address  +
+                ", Size= " + Size +
+                ", Rooms=\" + Rooms +
                 ", Baths=" + Baths +
                 ", Floors=" + Floors +
-                ", Special='" + Special + '\'' +
-                '}';
+                ", Special=" + Special;
     }
 }
