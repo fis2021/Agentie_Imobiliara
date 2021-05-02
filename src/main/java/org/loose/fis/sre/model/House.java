@@ -90,6 +90,6 @@ public class House {
                 ", Rooms=" + Rooms +
                 ", Baths=" + Baths +
                 ", Floors=" + Floors +
-                ", Special='" + Special;
+                ", Special= " + Special;
     }
 }
