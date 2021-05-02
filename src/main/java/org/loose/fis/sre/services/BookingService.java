@@ -8,6 +8,7 @@ import org.loose.fis.sre.model.House;
 import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
 import org.loose.fis.sre.exceptions.IncorectCredentials;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
+import org.loose.fis.sre.exceptions.IncorrectDateException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
@@ -31,19 +32,30 @@ public class BookingService {
     {
         return bookingRepository;
     }
-    public static void addBooking(String address,String day,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException
+    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException, IncorrectDateException
     {
-        checkBookingDoesNotAlreadyExist(day,hour,agent_book);
+        checkBookingDoesNotAlreadyExist(day,month,year,hour,agent_book);
         //checkAddressDoesNotAlreadyExist(address);
         UserService.checkUsername(user);
         HouseService.checkAddressDoesExist(address);
-        bookingRepository.insert(new Booking(address,day,hour,agent_book,special_req,user));
+        checkDate(day,month,year);
+        bookingRepository.insert(new Booking(address,day,month,year,hour,agent_book,special_req,user));
     }
 
-    private static void checkBookingDoesNotAlreadyExist(String day,String hour,String agent_book) throws BookingAlreadyExistsException {
+    private static void checkBookingDoesNotAlreadyExist(String day,String month,String year,String hour,String agent_book) throws BookingAlreadyExistsException {
         for (Booking booking : bookingRepository.find()) {
-            if (Objects.equals(day, booking.getDay()) && Objects.equals(hour, booking.getHour()) && Objects.equals(agent_book, booking.getAgent_book()))
-                throw new BookingAlreadyExistsException(day,hour,agent_book);
+            if (Objects.equals(day, booking.getDay()) && Objects.equals(month, booking.getMonth()) && Objects.equals(year, booking.getYear()) && Objects.equals(hour, booking.getHour())  && Objects.equals(agent_book, booking.getAgent_book()))
+                throw new BookingAlreadyExistsException(day,month,year,hour,agent_book);
+        }
+    }
+    private static void checkDate(String day,String month,String year) throws IncorrectDateException {
+        if((Objects.equals(day,"30") || Objects.equals(day,"31")) &&(Objects.equals(month,"February")))
+        {
+            throw new IncorrectDateException(day,month,year);
+        }
+        if((Objects.equals(day,"31")) && (Objects.equals(month,"April") || Objects.equals(month,"June") || Objects.equals(month,"September") ||  Objects.equals(month,"November")))
+        {
+            throw new IncorrectDateException(day,month,year);
         }
     }
     /*private static void checkAddressDoesNotAlreadyExist(String address) throws HouseDoesNotExistsException {
