@@ -31,6 +31,7 @@ public class LoginController {
         role.getItems().addAll("Buyer", "Agent");
     }
 
+
     @FXML
     public void handleLoginAction() {
         try {

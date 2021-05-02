@@ -6,29 +6,33 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
           vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
->
+          fx:controller="org.loose.fis.sre.controllers.BookingController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
     </padding>
-    <Text id="title-text" text="Agentie Imobiliara" GridPane.columnIndex="0" GridPane.columnSpan="2"
+    <Text id="title-text" text="Agentie Imobiliara" GridPane.columnIndex="0" GridPane.columnSpan="1"
           GridPane.rowIndex="0"/>
-    <Text id="sub-title-text" text="Book a visit" GridPane.columnIndex="1" GridPane.columnSpan="3"
+    <Text id="sub-title-text" text="Book a visit" GridPane.columnIndex="1" GridPane.columnSpan="2"
           GridPane.rowIndex="1"/>
-    <Label text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <TextField fx:id="username" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <TextField fx:id="address" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Label text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
 
-    <ChoiceBox fx:id="day" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+    <ChoiceBox fx:id="day" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
     </ChoiceBox>
-    <Label text="Hour:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <Label text="Hour:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
 
-    <ChoiceBox fx:id="hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+    <ChoiceBox fx:id="hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
     </ChoiceBox>
-    <Label text="Agent:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-    <ChoiceBox fx:id="agent_book" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+    <Label text="Agent:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+    <ChoiceBox fx:id="agent_book" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
     </ChoiceBox>
-    <Label text="Special Requirements:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-    <TextField fx:id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-    <Text fx:id="make_bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
-        <Button   text="Save booking"/>
+    <Label text="Special Requirements:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+    <TextField fx:id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+    <Text fx:id="make_bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="10">
+        <Button  onAction="#handleBookingAction" text="Save booking"/>
     </HBox>
 </GridPane>
