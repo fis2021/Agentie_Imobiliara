@@ -28,9 +28,9 @@ public class HouseService {
     {
         return houseRepository;
     }
-    public static String  seeHouses( )
+    public static String  seeHouses()
     {
-         String s="";
+        String s="";
         for (House house : houseRepository.find())
         {
 
