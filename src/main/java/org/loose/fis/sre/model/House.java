@@ -87,7 +87,7 @@ public class House {
         return
                 "Address='" + Address  +
                 ", Size= " + Size +
-                ", Rooms=\" + Rooms +
+                ", Rooms=\"" + Rooms +
                 ", Baths=" + Baths +
                 ", Floors=" + Floors +
                 ", Special=" + Special;

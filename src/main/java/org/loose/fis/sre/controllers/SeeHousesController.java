@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 import org.loose.fis.sre.model.House;
+import java.io.IOException;
 
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -28,6 +29,7 @@ public class SeeHousesController {
     public void handleSeeHouses() {
         seehousemesage.setText(HouseService.seeHouses());
     }
+    @FXML
     public void handleSearchHouseAction(){
         try
         {
@@ -37,6 +39,21 @@ public class SeeHousesController {
         catch (HouseDoesNotExistsException e) {
             seehousemesage.setText(e.getMessage());
         }
+    }
+    @FXML
+    public void handlebook() {
+
+        try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("book.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Agentie Imobiliara");
+            stage.setScene(new Scene(root, 600, 575));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 
