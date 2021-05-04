@@ -21,7 +21,7 @@
         <Button prefHeight="59.0" prefWidth="164.0"  onAction="#handleDeleteHouse" text="Delete house" />
     </HBox>
     <HBox alignment="bottom_right" prefHeight="54.0" prefWidth="162.0" spacing="10" GridPane.rowIndex="6">
-        <Button prefHeight="59.0" prefWidth="164.0" text="See bookings" />
+        <Button prefHeight="59.0" prefWidth="164.0" onAction="#handleSeeBookings" text="See bookings" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />
