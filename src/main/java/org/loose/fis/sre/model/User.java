@@ -112,5 +112,11 @@ public class User {
 		return true;
 	}
 
-
+	@java.lang.Override
+	public java.lang.String toString() {
+		return
+				"fullName='" + fullName + '\'' +
+				", phoneNumber='" + phoneNumber + '\'' +
+				'\n';
+	}
 }

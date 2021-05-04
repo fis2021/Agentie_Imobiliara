@@ -4,6 +4,7 @@ import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.loose.fis.sre.exceptions.IncorectCredentials;
 import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
+import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
 import org.loose.fis.sre.model.User;
 
 import java.nio.charset.StandardCharsets;
@@ -35,6 +36,13 @@ public class UserService {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
         }
+    }
+    public static void checkAgentDoesExist(String agent_book) throws AgentDoesNotExistException {
+        for (User user : userRepository.find()) {
+            if (Objects.equals(user.getRole(), "Agent") && Objects.equals(user.getFullName(), agent_book))
+                return;
+        }
+        throw new AgentDoesNotExistException(agent_book);
     }
     public static void checkUsername(String username) throws IncorectCredentials
     {
@@ -86,6 +94,7 @@ public class UserService {
         }
         throw new IncorectCredentials(username);
     }
+
     public static void CheckUserCredentials(String Name) throws IncorectCredentials
     {
 
@@ -96,5 +105,17 @@ public class UserService {
             }
         }
         throw new IncorectCredentials(Name);
+
+    public static String agents_lsit()
+    {
+        String s="";
+        for (User user : userRepository.find())
+        {
+            if (Objects.equals(user.getRole(), "Agent"))
+            {
+                s+=user.toString();
+            }
+        }
+        return s;
     }
 }
