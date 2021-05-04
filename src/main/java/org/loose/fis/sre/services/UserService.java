@@ -95,7 +95,18 @@ public class UserService {
         throw new IncorectCredentials(username);
     }
 
-    public static void CheckUserCredentials(String Name) throws IncorectCredentials
+
+    public static String agents_lsit() {
+        String s = "";
+        for (User user : userRepository.find()) {
+            if (Objects.equals(user.getRole(), "Agent")) {
+                s += user.toString();
+            }
+        }
+        return s;
+    }
+
+    public static void CheckNameCredentials (String Name) throws IncorectCredentials
     {
 
         for (User user : userRepository.find()) {
@@ -106,16 +117,5 @@ public class UserService {
         }
         throw new IncorectCredentials(Name);
 
-    public static String agents_lsit()
-    {
-        String s="";
-        for (User user : userRepository.find())
-        {
-            if (Objects.equals(user.getRole(), "Agent"))
-            {
-                s+=user.toString();
-            }
-        }
-        return s;
     }
 }

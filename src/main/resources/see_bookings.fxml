@@ -17,8 +17,8 @@
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
         <Button   onAction="#handleSeeBookings" text="See your bookings"/>
     </HBox>
-    <TextField fx:id="Username" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+    <TextField fx:id="Name" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
 
-    <Label text="Username:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label text="Name:" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
 
 </GridPane>

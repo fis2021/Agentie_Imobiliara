@@ -70,7 +70,7 @@ public class BookingService {
 
     public static String  seeBookings(String Name) throws IncorectCredentials
     {
-        UserService.CheckUserCredentials(Name);
+        UserService.CheckNameCredentials(Name);
         String s="";
         for (Booking  booking : bookingRepository.find())
         {
