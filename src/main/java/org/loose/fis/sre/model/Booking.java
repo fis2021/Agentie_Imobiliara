@@ -28,7 +28,7 @@ public class Booking {
         this.hour = hour;
         this.agent_book = agent_book;
         this.special_req = special_req;
-        this.accept_booking="rejected";
+        this.accept_booking="not responded";
         this.rejection_message=" ";
     }
     public Booking()
@@ -130,13 +130,13 @@ public class Booking {
     @java.lang.Override
     public java.lang.String toString() {
         return "Booking{" +
-                "address= " + address +
+                "address= " + address +"\n" +
                 ", day=" + day  +
                 ", month=" + month  +
                 ", year= " + year  +
-                ", hour= " + hour  +
+                ", hour= " + hour  + "\n" +
                 ", agent_book= " + agent_book +
-                ", special_req= " + special_req   +
+                ", special_req= " + special_req   + "\n" +
                 ", accept_booking= " + accept_booking  +
                 ", rejection_message= " + rejection_message +
                 ", user='" + user  +
