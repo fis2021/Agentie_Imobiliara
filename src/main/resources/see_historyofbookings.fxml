@@ -6,7 +6,7 @@
 
 <GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
           vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="org.loose.fis.sre.controllers.SeeBookingsController">
+          fx:controller="org.loose.fis.sre.controllers.SeeHistoryofBookingsController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
@@ -15,7 +15,7 @@
     <Text fx:id="seebooksmesage" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button   onAction="#handleSeeBookings" text="See your bookings"/>
+        <Button   onAction="#handleSeeHystoryofBookings" text="See your bookings"/>
     </HBox>
     <TextField fx:id="Name" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
 
