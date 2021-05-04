@@ -67,4 +67,18 @@ public class BookingService {
             throw new HouseDoesNotExistsException(address);
         }
     }*/
+
+    public static String  seeBookings(String Name) throws IncorectCredentials
+    {
+        UserService.CheckUserCredentials(Name);
+        String s="";
+        for (Booking  booking : bookingRepository.find())
+        {
+            if(Objects.equals(Name, booking.getAgent_book())) {
+                s = s + booking.toString();
+                s = s + "\n";
+            }
+        }
+        return s;
+    }
 }
