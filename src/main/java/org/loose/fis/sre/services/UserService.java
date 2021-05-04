@@ -7,6 +7,7 @@ import org.loose.fis.sre.exceptions.NoBookigsExectpion;
 import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
 import org.loose.fis.sre.model.User;
+import org.loose.fis.sre.exceptions.IncorrectNameException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -45,16 +46,16 @@ public class UserService {
         }
         throw new AgentDoesNotExistException(agent_book);
     }
-    public static void checkUsername(String username) throws IncorectCredentials
+    public static void checkUsername(String username) throws IncorrectNameException
     {
         for(User user : userRepository.find())
         {
-            if(Objects.equals(username,user.getUsername()))
+            if(Objects.equals(username,user.getFullName()))
             {
                 return;
             }
         }
-        throw new IncorectCredentials(username);
+        throw new IncorrectNameException(username);
     }
     private static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();

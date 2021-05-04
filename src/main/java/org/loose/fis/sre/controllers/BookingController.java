@@ -14,7 +14,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
-import org.loose.fis.sre.exceptions.IncorectCredentials;
+import org.loose.fis.sre.exceptions.IncorrectNameException;
 import org.loose.fis.sre.exceptions.IncorrectDateException;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
@@ -65,7 +65,7 @@ public class BookingController {
         catch (BookingAlreadyExistsException e) {
             make_bookingMessage.setText(e.getMessage());
        }
-        catch (IncorectCredentials e) {
+        catch (IncorrectNameException e) {
             make_bookingMessage.setText(e.getMessage());
         }
         catch (HouseDoesNotExistsException e) {

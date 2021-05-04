@@ -29,7 +29,7 @@ public class BookingService {
     {
         return bookingRepository;
     }
-    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException, IncorrectDateException, AgentDoesNotExistException
+    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorrectNameException, HouseDoesNotExistsException, IncorrectDateException, AgentDoesNotExistException
     {
         checkBookingDoesNotAlreadyExist(day,month,year,hour,agent_book);
         UserService.checkAgentDoesExist(agent_book);
@@ -71,6 +71,19 @@ public class BookingService {
         for (Booking  booking : bookingRepository.find())
         {
             if(Objects.equals(Name, booking.getAgent_book())) {
+                s = s + booking.toString();
+                s = s + "\n";
+            }
+        }
+        return s;
+    }
+    public static String  seeHistoryBookings(String Name) throws NoBookigsExectpion
+    {
+        UserService.CheckNameCredentials(Name);
+        String s="";
+        for (Booking  booking : bookingRepository.find())
+        {
+            if(Objects.equals(Name, booking.getUser())) {
                 s = s + booking.toString();
                 s = s + "\n";
             }
