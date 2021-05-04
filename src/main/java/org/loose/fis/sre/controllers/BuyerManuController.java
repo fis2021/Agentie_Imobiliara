@@ -17,7 +17,6 @@ import java.io.IOException;
 public class BuyerManuController {
 
 
-
     @FXML
     public void SeeHouses() {
 
@@ -36,4 +35,20 @@ public class BuyerManuController {
 
     }
 
+    @FXML
+    public void SeeBookings_history() {
+
+        try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getClassLoader().getResource("see_historyofbookings.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Agentie Imobiliara");
+            stage.setScene(new Scene(root, 600, 575));
+            stage.show();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -139,7 +139,7 @@ public class Booking {
                 ", special_req= " + special_req   + "\n" +
                 ", accept_booking= " + accept_booking  +
                 ", rejection_message= " + rejection_message +
-                ", user='" + user  +
+                ", Name='" + user  +
                 '}';
     }
 }
