@@ -9,6 +9,7 @@ import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
 import org.loose.fis.sre.exceptions.IncorectCredentials;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 import org.loose.fis.sre.exceptions.IncorrectDateException;
+import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
@@ -32,9 +33,10 @@ public class BookingService {
     {
         return bookingRepository;
     }
-    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException, IncorrectDateException
+    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException, IncorrectDateException, AgentDoesNotExistException
     {
         checkBookingDoesNotAlreadyExist(day,month,year,hour,agent_book);
+        UserService.checkAgentDoesExist(agent_book);
         //checkAddressDoesNotAlreadyExist(address);
         UserService.checkUsername(user);
         HouseService.checkAddressDoesExist(address);
