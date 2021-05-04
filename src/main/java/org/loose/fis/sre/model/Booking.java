@@ -130,16 +130,16 @@ public class Booking {
     @java.lang.Override
     public java.lang.String toString() {
         return "Booking{" +
-                "address='" + address + '\'' +
-                ", day='" + day + '\'' +
-                ", month='" + month + '\'' +
-                ", year='" + year + '\'' +
-                ", hour='" + hour + '\'' +
-                ", agent_book='" + agent_book + '\'' +
-                ", special_req='" + special_req + '\'' +
-                ", accept_booking='" + accept_booking + '\'' +
-                ", rejection_message='" + rejection_message + '\'' +
-                ", user='" + user + '\'' +
+                "address= " + address +
+                ", day=" + day  +
+                ", month=" + month  +
+                ", year= " + year  +
+                ", hour= " + hour  +
+                ", agent_book= " + agent_book +
+                ", special_req= " + special_req   +
+                ", accept_booking= " + accept_booking  +
+                ", rejection_message= " + rejection_message +
+                ", user='" + user  +
                 '}';
     }
 }
