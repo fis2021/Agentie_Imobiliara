@@ -29,11 +29,10 @@ public class BookingService {
     {
         return bookingRepository;
     }
-    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorectCredentials, HouseDoesNotExistsException, IncorrectDateException, AgentDoesNotExistException
+    public static void addBooking(String address,String day,String month,String year,String hour, String agent_book, String special_req,String user) throws BookingAlreadyExistsException, IncorrectNameException, HouseDoesNotExistsException, IncorrectDateException, AgentDoesNotExistException
     {
         checkBookingDoesNotAlreadyExist(day,month,year,hour,agent_book);
         UserService.checkAgentDoesExist(agent_book);
-        //checkAddressDoesNotAlreadyExist(address);
         UserService.checkUsername(user);
         HouseService.checkAddressDoesExist(address);
         checkDate(day,month,year);
@@ -56,13 +55,6 @@ public class BookingService {
             throw new IncorrectDateException(day,month,year);
         }
     }
-    /*private static void checkAddressDoesNotAlreadyExist(String address) throws HouseDoesNotExistsException {
-        for (House house : houseRepository.find()) {
-            if (Objects.equals(address, house.getAddress()))
-                return;
-            throw new HouseDoesNotExistsException(address);
-        }
-    }*/
 
     public static String  seeBookings(String Name) throws NoBookigsExectpion
     {
@@ -71,6 +63,19 @@ public class BookingService {
         for (Booking  booking : bookingRepository.find())
         {
             if(Objects.equals(Name, booking.getAgent_book())) {
+                s = s + booking.toString();
+                s = s + "\n";
+            }
+        }
+        return s;
+    }
+    public static String  seeHistoryBookings(String Name) throws NoBookigsExectpion
+    {
+        UserService.CheckNameCredentials(Name);
+        String s="";
+        for (Booking  booking : bookingRepository.find())
+        {
+            if(Objects.equals(Name, booking.getUser())) {
                 s = s + booking.toString();
                 s = s + "\n";
             }
