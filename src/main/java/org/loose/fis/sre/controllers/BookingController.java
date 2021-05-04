@@ -19,11 +19,14 @@ import org.loose.fis.sre.exceptions.IncorrectDateException;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
 import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
 import org.loose.fis.sre.services.BookingService;
+import org.loose.fis.sre.services.UserService;
 
 
 public class BookingController {
     @FXML
     private Text make_bookingMessage;
+    @FXML
+    private Text agentsMessage;
     @FXML
     private TextField address;
     @FXML
@@ -74,5 +77,9 @@ public class BookingController {
         catch (AgentDoesNotExistException e) {
             make_bookingMessage.setText(e.getMessage());
         }
+    }
+    @FXML
+    public void handleSeeAgents() {
+        agentsMessage.setText(UserService.agents_lsit());
     }
 }

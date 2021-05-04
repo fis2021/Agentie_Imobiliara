@@ -42,4 +42,8 @@
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="11">
         <Button  onAction="#handleBookingAction" text="Save booking"/>
     </HBox>
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="2">
+        <Button  onAction="#handleSeeAgents" text="See list of agents"/>
+    </HBox>
+    <Text fx:id="agentsMessage" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
 </GridPane>

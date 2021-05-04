@@ -94,4 +94,16 @@ public class UserService {
         }
         throw new IncorectCredentials(username);
     }
+    public static String agents_lsit()
+    {
+        String s="";
+        for (User user : userRepository.find())
+        {
+            if (Objects.equals(user.getRole(), "Agent"))
+            {
+                s+=user.toString();
+            }
+        }
+        return s;
+    }
 }
