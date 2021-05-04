@@ -34,9 +34,8 @@
 
     <ChoiceBox fx:id="hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
     </ChoiceBox>
-    <Label text="Agent:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-    <ChoiceBox fx:id="agent_book" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
-    </ChoiceBox>
+    <Label text="Agent name:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
+    <TextField fx:id="agent_book" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
     <Label text="Special Requirements:" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
     <TextField fx:id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
     <Text fx:id="make_bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
