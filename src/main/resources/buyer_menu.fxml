@@ -16,7 +16,7 @@
 
     </HBox>
     <HBox alignment="bottom_right" prefHeight="54.0" prefWidth="162.0" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
-        <Button prefHeight="59.0" prefWidth="164.0" text="See previous bookings" />
+        <Button prefHeight="59.0" prefWidth="164.0" onAction="#SeeBookings_history" text="See previous bookings" />
     </HBox>
    <columnConstraints>
       <ColumnConstraints />
