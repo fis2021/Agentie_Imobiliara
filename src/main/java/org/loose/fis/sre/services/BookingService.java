@@ -33,7 +33,6 @@ public class BookingService {
     {
         checkBookingDoesNotAlreadyExist(day,month,year,hour,agent_book);
         UserService.checkAgentDoesExist(agent_book);
-        //checkAddressDoesNotAlreadyExist(address);
         UserService.checkUsername(user);
         HouseService.checkAddressDoesExist(address);
         checkDate(day,month,year);
@@ -56,13 +55,6 @@ public class BookingService {
             throw new IncorrectDateException(day,month,year);
         }
     }
-    /*private static void checkAddressDoesNotAlreadyExist(String address) throws HouseDoesNotExistsException {
-        for (House house : houseRepository.find()) {
-            if (Objects.equals(address, house.getAddress()))
-                return;
-            throw new HouseDoesNotExistsException(address);
-        }
-    }*/
 
     public static String  seeBookings(String Name) throws NoBookigsExectpion
     {
