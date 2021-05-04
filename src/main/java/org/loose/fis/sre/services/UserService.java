@@ -3,6 +3,7 @@ package org.loose.fis.sre.services;
 import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.loose.fis.sre.exceptions.IncorectCredentials;
+import org.loose.fis.sre.exceptions.NoBookigsExectpion;
 import org.loose.fis.sre.exceptions.UsernameAlreadyExistsException;
 import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
 import org.loose.fis.sre.model.User;
@@ -106,7 +107,7 @@ public class UserService {
         return s;
     }
 
-    public static void CheckNameCredentials (String Name) throws IncorectCredentials
+    public static void CheckNameCredentials (String Name) throws NoBookigsExectpion
     {
 
         for (User user : userRepository.find()) {
@@ -115,7 +116,7 @@ public class UserService {
                 return;
             }
         }
-        throw new IncorectCredentials(Name);
+        throw new NoBookigsExectpion(Name);
 
     }
 }
