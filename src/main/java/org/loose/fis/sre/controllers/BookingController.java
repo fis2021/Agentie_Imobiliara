@@ -17,12 +17,16 @@ import org.loose.fis.sre.exceptions.BookingAlreadyExistsException;
 import org.loose.fis.sre.exceptions.IncorectCredentials;
 import org.loose.fis.sre.exceptions.IncorrectDateException;
 import org.loose.fis.sre.exceptions.HouseDoesNotExistsException;
+import org.loose.fis.sre.exceptions.AgentDoesNotExistException;
 import org.loose.fis.sre.services.BookingService;
+import org.loose.fis.sre.services.UserService;
 
 
 public class BookingController {
     @FXML
     private Text make_bookingMessage;
+    @FXML
+    private Text agentsMessage;
     @FXML
     private TextField address;
     @FXML
@@ -36,7 +40,7 @@ public class BookingController {
     @FXML
     private ChoiceBox year;
     @FXML
-    private ChoiceBox agent_book;
+    private TextField agent_book;
     @FXML
     private TextField username;
 
@@ -47,7 +51,6 @@ public class BookingController {
         month.getItems().addAll("January","February","March","April","May","June","July","August","September","October","November","December");
         year.getItems().addAll("2021","2022");
         hour.getItems().addAll("9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00");
-        agent_book.getItems().addAll("Angela", "Agnes" ,"Angelo", "Agel");
     }
 
 
@@ -56,7 +59,7 @@ public class BookingController {
         try
         {
             BookingService.addBooking(address.getText(),(String) day.getValue(),(String) month.getValue(),(String) year.getValue(),(String) hour.getValue(),
-                    (String) agent_book.getValue(),special_req.getText(),username.getText());
+                    agent_book.getText(),special_req.getText(),username.getText());
             make_bookingMessage.setText("Booking saved successfully!");
         }
         catch (BookingAlreadyExistsException e) {
@@ -71,5 +74,12 @@ public class BookingController {
         catch (IncorrectDateException e) {
             make_bookingMessage.setText(e.getMessage());
         }
+        catch (AgentDoesNotExistException e) {
+            make_bookingMessage.setText(e.getMessage());
+        }
+    }
+    @FXML
+    public void handleSeeAgents() {
+        agentsMessage.setText(UserService.agents_lsit());
     }
 }
