@@ -23,22 +23,27 @@ public class SeeBookingsController {
     private Text seebooksmesage;
     @FXML
     private TextField Name;
+
     @FXML
-    private TextField Name2;
+    private ChoiceBox Day;
     @FXML
-    private TextField Hour;
+    private ChoiceBox Hour;
     @FXML
-    private TextField Day;
+    private ChoiceBox Month;
     @FXML
-    private TextField Month;
-    @FXML
-    private TextField Year;
+    private ChoiceBox Year;
     @FXML
     private TextField Reason;
 
 
-
-
+    @FXML
+    public void initialize() {
+        Day.getItems().addAll("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18",
+                "19","20","21","22","23","24","25","26","27","28","29","30","31");
+        Month.getItems().addAll("January","February","March","April","May","June","July","August","September","October","November","December");
+        Year.getItems().addAll("2021","2022");
+        Hour.getItems().addAll("9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00");
+    }
 
 
     @FXML
@@ -54,7 +59,7 @@ public class SeeBookingsController {
     public void handleApprove()
     {
         try{
-            BookingService.approveBooking(Name2.getText(),Hour.getText(),Day.getText(),Month.getText(),Year.getText());
+            BookingService.approveBooking(Name.getText(),(String) Hour.getValue(),(String) Day.getValue(),(String) Month.getValue(),(String) Year.getValue());
             editbooking.setText("Booking approved!");
         }
         catch (IncorrectDateException e) {
@@ -71,7 +76,7 @@ public class SeeBookingsController {
     public void handleReject()
     {
         try{
-            BookingService.rejectBooking(Name2.getText(),Hour.getText(),Day.getText(),Month.getText(),Year.getText(), Reason.getText());
+            BookingService.rejectBooking(Name.getText(),(String) Hour.getValue(),(String) Day.getValue(),(String) Month.getValue(),(String) Year.getValue(), Reason.getText());
             editbooking.setText("Booking rejected!");
         }
         catch (IncorrectDateException e) {
