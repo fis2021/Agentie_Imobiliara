@@ -20,34 +20,37 @@
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
         <Button   onAction="#handleSeeBookings" text="See your bookings"/>
     </HBox>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="10">
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="14">
         <Button   onAction="#handleApprove" text="Approve"/>
     </HBox>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="12">
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="14">
         <Button   onAction="#handleReject" text="Reject"/>
     </HBox>
     <TextField fx:id="Name" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <Label text="Name:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <TextField fx:id="Name2" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 
-    <Label text="Name:" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
-    <TextField fx:id="Hour" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
 
-    <Label text="Hour:" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
-    <TextField fx:id="Day" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
 
-    <Label text="Day:" GridPane.columnIndex="2" GridPane.rowIndex="9"/>
-    <TextField fx:id="Month" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
 
-    <Label text="Month:" GridPane.columnIndex="1" GridPane.rowIndex="11"/>
-    <TextField fx:id="Year" GridPane.columnIndex="2" GridPane.rowIndex="12"/>
+    <Label text="Hour:" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+    <ChoiceBox fx:id="Hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+    </ChoiceBox>
+    <Label text="Day:" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
+    <ChoiceBox fx:id="Day" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
+    </ChoiceBox>
 
-    <Label text="Year:" GridPane.columnIndex="2" GridPane.rowIndex="11"/>
-    <TextField fx:id="Reason" GridPane.columnIndex="1" GridPane.rowIndex="14"/>
+    <Label text="Month:" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <ChoiceBox fx:id="Month" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+    </ChoiceBox>
 
-    <Label text="RejectionReason:" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+
+    <Label text="Year:" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
+    <ChoiceBox fx:id="Year" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
+    </ChoiceBox>
+    <TextField fx:id="Reason" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+
+    <Label text="RejectionReason:" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
 
 
 </GridPane>
