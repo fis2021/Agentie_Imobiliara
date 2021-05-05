@@ -11,12 +11,12 @@
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
     <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
-    <Text id="title-text1" text="Delete a house" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+    <Text id="title-text1" text="Delete a house" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
     <TextField fx:id="Address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-    <Text fx:id="deletehouseMessage" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <Text fx:id="deletehouseMessage" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
+    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
         <Button  onAction="#handleDeleteHouseAction" text="Delete house"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
