@@ -33,6 +33,8 @@ public class SeeBookingsController {
     private TextField Month;
     @FXML
     private TextField Year;
+    @FXML
+    private TextField Reason;
 
 
 
@@ -69,7 +71,7 @@ public class SeeBookingsController {
     public void handleReject()
     {
         try{
-            BookingService.rejectBooking(Name2.getText(),Hour.getText(),Day.getText(),Month.getText(),Year.getText());
+            BookingService.rejectBooking(Name2.getText(),Hour.getText(),Day.getText(),Month.getText(),Year.getText(), Reason.getText());
             editbooking.setText("Booking rejected!");
         }
         catch (IncorrectDateException e) {
@@ -78,6 +80,10 @@ public class SeeBookingsController {
         catch (AgentDoesNotExistException e) {
             editbooking.setText(e.getMessage());
         }
+        catch (BookingNotFoundException e) {
+            editbooking.setText(e.getMessage());
+        }
+
     }
 
 }
