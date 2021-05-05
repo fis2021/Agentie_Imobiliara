@@ -12,7 +12,7 @@
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
     <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
-    <Text id="title-text1" text="Add a house" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+    <Text id="title-text1" text="Add a house" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
     <TextField fx:id="Address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
