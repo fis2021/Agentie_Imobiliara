@@ -9,6 +9,7 @@ import org.loose.fis.sre.model.House;
 
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
+
 import java.util.Objects;
 
 import static org.loose.fis.sre.services.FileSystemService.getPathToBooking;
@@ -82,4 +83,34 @@ public class BookingService {
         }
         return s;
     }
+    public static void approveBooking(String Name, String hour,  String day,String month, String year) throws IncorrectDateException, AgentDoesNotExistException,BookingNotFoundException
+    {
+        UserService.checkAgentDoesExist(Name);
+        checkDate(day,month,year);
+        for (Booking  booking : bookingRepository.find())
+        {
+            if(Objects.equals(Name, booking.getAgent_book()) && Objects.equals(day, booking.getDay()) && Objects.equals(month, booking.getMonth()) && Objects.equals(year, booking.getYear()) && Objects.equals(hour, booking.getHour() ))
+
+            {
+                booking.setAccept_booking("approved");
+                bookingRepository.update(booking);
+                return;
+            }
+        }
+        throw new BookingNotFoundException(Name, hour, day, month, year);
+    }
+    public static void rejectBooking(String Name, String hour,  String day,String month, String year) throws IncorrectDateException, AgentDoesNotExistException
+    {
+        UserService.checkAgentDoesExist(Name);
+        checkDate(day,month,year);
+        for (Booking  booking : bookingRepository.find())
+        {
+            if(Objects.equals(Name, booking.getAgent_book()) && Objects.equals(day, booking.getDay()) && Objects.equals(month, booking.getMonth()) && Objects.equals(year, booking.getYear()) && Objects.equals(hour, booking.getHour() )) {
+            booking.setAccept_booking("rejectet");
+                bookingRepository.update(booking);
+            //booking.setRejection_message(reason);
+        }
+        }
+    }
+
 }

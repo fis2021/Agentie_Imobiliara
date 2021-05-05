@@ -18,9 +18,25 @@ import org.loose.fis.sre.services.BookingService;
 public class SeeBookingsController {
 
     @FXML
+    private Text editbooking;
+    @FXML
     private Text seebooksmesage;
     @FXML
     private TextField Name;
+    @FXML
+    private TextField Name2;
+    @FXML
+    private TextField Hour;
+    @FXML
+    private TextField Day;
+    @FXML
+    private TextField Month;
+    @FXML
+    private TextField Year;
+
+
+
+
 
 
     @FXML
@@ -33,6 +49,37 @@ public class SeeBookingsController {
         }
 
     }
+    public void handleApprove()
+    {
+        try{
+            BookingService.approveBooking(Name2.getText(),Hour.getText(),Day.getText(),Month.getText(),Year.getText());
+            editbooking.setText("Booking approved!");
+        }
+        catch (IncorrectDateException e) {
+            editbooking.setText(e.getMessage());
+        }
+        catch (AgentDoesNotExistException e) {
+            editbooking.setText(e.getMessage());
+        }
+        catch (BookingNotFoundException e) {
+            editbooking.setText(e.getMessage());
+        }
+
+    }
+    public void handleReject()
+    {
+        try{
+            BookingService.rejectBooking(Name2.getText(),Hour.getText(),Day.getText(),Month.getText(),Year.getText());
+            editbooking.setText("Booking rejected!");
+        }
+        catch (IncorrectDateException e) {
+            editbooking.setText(e.getMessage());
+        }
+        catch (AgentDoesNotExistException e) {
+            editbooking.setText(e.getMessage());
+        }
+    }
+
 }
 
 
