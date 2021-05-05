@@ -1,4 +1,5 @@
 package org.loose.fis.sre.services;
+import javafx.fxml.FXML;
 import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.services.UserService;
 import org.dizitart.no2.Nitrite;
@@ -26,6 +27,8 @@ public class BookingService {
 
         bookingRepository = database.getRepository(Booking.class);
     }
+
+
     public static ObjectRepository<Booking> getBookingRepository()
     {
         return bookingRepository;
@@ -93,6 +96,7 @@ public class BookingService {
 
             {
                 booking.setAccept_booking("approved");
+                booking.setRejection_message("");
                 bookingRepository.update(booking);
                 return;
             }
