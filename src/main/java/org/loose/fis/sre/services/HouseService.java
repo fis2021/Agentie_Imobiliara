@@ -50,7 +50,7 @@ public class HouseService {
         for (House house : houseRepository.find())
         {
             if(Objects.equals(Address, house.getAddress())) {
-                house.setAddress(Address);
+                //house.setAddress(Address);
                 house.setSize(Size);
                 house.setRooms(Rooms);
                 house.setBaths(Baths);
