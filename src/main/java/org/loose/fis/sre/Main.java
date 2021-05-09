@@ -19,7 +19,6 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception
     {
         initDirectory_house();
-        initDirectory_booking();
         UserService.initDatabase();
         HouseService.initDatabase();
         BookingService.initDatabase();
@@ -34,12 +33,7 @@ public class Main extends Application {
         if (!Files.exists(houseHomePath))
             houseHomePath.toFile().mkdirs();
     }
-    public static void initDirectory_booking()
-    {
-        Path bookingHomePath = FileSystemService.BOOKING_HOME_PATH;
-        if(!Files.exists(bookingHomePath))
-            bookingHomePath.toFile().mkdirs();
-    }
+
 
 
     public static void main(String[] args) {
