@@ -11,6 +11,7 @@ import org.loose.fis.sre.model.House;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
 
+import java.util.List;
 import java.util.Objects;
 
 import static org.loose.fis.sre.services.FileSystemService.getPathToBooking;
@@ -21,6 +22,7 @@ public class BookingService {
     //private static ObjectRepository<House> houseRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory_booking();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToBooking("booking-database.db").toFile())
                 .openOrCreate("agent_imb", "agent_imob");
@@ -28,7 +30,9 @@ public class BookingService {
         bookingRepository = database.getRepository(Booking.class);
     }
 
-
+    public static List<Booking> getAllBookings() {
+        return bookingRepository.find().toList();
+    }
     public static ObjectRepository<Booking> getBookingRepository()
     {
         return bookingRepository;
