@@ -12,6 +12,7 @@ import org.loose.fis.sre.exceptions.IncorrectNameException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
@@ -21,6 +22,7 @@ public class UserService {
     private static ObjectRepository<User> userRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToFile("agentie_imobiliara.db").toFile())
                 .openOrCreate("agent_imb", "agent_imob");
@@ -33,7 +35,11 @@ public class UserService {
         userRepository.insert(new User(fullName,phoneNumber,username, encodePassword(username, password), role));
     }
 
-    private static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    public static List<User> getAllUsers() {
+        return userRepository.find().toList();
+    }
+
+    static void checkUserDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (User user : userRepository.find()) {
             if (Objects.equals(username, user.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
@@ -57,7 +63,7 @@ public class UserService {
         }
         throw new IncorrectNameException(username);
     }
-    private static String encodePassword(String salt, String password) {
+    static String encodePassword(String salt, String password) {
         MessageDigest md = getMessageDigest();
         md.update(salt.getBytes(StandardCharsets.UTF_8));
 
