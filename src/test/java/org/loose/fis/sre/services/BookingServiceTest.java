@@ -51,7 +51,7 @@ class BookingServiceTest {
         UserService.initDatabase();
         System.out.println("Before class");
 
-        FileSystemService.APPLICATION_FOLDER = ".test-addhouses-forbooking";
+        FileSystemService.HOUSE_FOLDER = ".test-addhouses-forbooking";
         FileSystemService.initDirectory_house();
         FileUtils.cleanDirectory(FileSystemService.getHouseHomeFolder().toFile());
         HouseService.initDatabase();
