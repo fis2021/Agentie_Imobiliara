@@ -47,7 +47,7 @@ public class BookingService {
         bookingRepository.insert(new Booking(address,day,month,year,hour,agent_book,special_req,user));
     }
 
-    private static void checkBookingDoesNotAlreadyExist(String day,String month,String year,String hour,String agent_book) throws BookingAlreadyExistsException {
+     static void checkBookingDoesNotAlreadyExist(String day,String month,String year,String hour,String agent_book) throws BookingAlreadyExistsException {
         for (Booking booking : bookingRepository.find()) {
             if (Objects.equals(day, booking.getDay()) && Objects.equals(month, booking.getMonth()) && Objects.equals(year, booking.getYear()) && Objects.equals(hour, booking.getHour())  && Objects.equals(agent_book, booking.getAgent_book()))
                 throw new BookingAlreadyExistsException(day,month,year,hour,agent_book);
