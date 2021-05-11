@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingServiceTest {
     public static final String ADMIN = "admin";
     public static final String AGENT = "Agent";
-    public static final String ADDRESS="Address";
-    public static final String SIZE="Size";
-    public static final String ROOMS="Rooms";
-    public static final String BATHS="Baths";
-    public static final String FLOORS="Floors";
-    public static final String SPECIAL="Special";
+    public static final String ADDRESS = "Address";
+    public static final String SIZE = "Size";
+    public static final String ROOMS = "Rooms";
+    public static final String BATHS = "Baths";
+    public static final String FLOORS = "Floors";
+    public static final String SPECIAL = "Special";
 /*@BeforeEach
     void setUp() throws Exception {
         FileSystemService.BOOKING_FOLDER = ".test-booking";
@@ -92,32 +92,31 @@ class BookingServiceTest {
         });
         System.out.println("3");
     }
-
-
-    @Test
-    @Order(4)
+@Order(4)
     @DisplayName("Booking can not be added for an address that does not exist")
     void testBookingForWrongAddress() {
         assertThrows(HouseDoesNotExistsException.class, () -> {
-            HouseService.addHouse(ADDRESS, SIZE, ROOMS,BATHS,FLOORS, SPECIAL);
-            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+            HouseService.addHouse(ADDRESS, SIZE, ROOMS, BATHS, FLOORS, SPECIAL);
+            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, AGENT);
         });
         System.out.println("4");
     }
+
     @Test
     @Order(5)
     @DisplayName("Booking can not be added for a date that does not exist")
     void testBookingForWrongDate() {
         assertThrows(IncorrectDateException.class, () -> {
-            BookingService.addBooking(ADDRESS,"31","February",ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+            BookingService.addBooking(ADDRESS, "31", "February", ADMIN, ADMIN, AGENT, ADMIN, AGENT);
         });
         System.out.println("5");
     }
+
     @Test
     @Order(6)
     @DisplayName("Booking is added to database")
     void testBookingIsAddedToDatabase() throws IncorrectDateException, AgentDoesNotExistException, IncorrectNameException, BookingAlreadyExistsException, HouseDoesNotExistsException {
-        BookingService.addBooking(ADDRESS,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+        BookingService.addBooking(ADDRESS, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, AGENT);
         assertThat(BookingService.getAllBookings()).isNotEmpty();
         assertThat(BookingService.getAllBookings()).size().isEqualTo(1);
         Booking booking = BookingService.getAllBookings().get(0);
@@ -132,16 +131,18 @@ class BookingServiceTest {
         org.assertj.core.api.Assertions.assertThat(booking.getUser()).isEqualTo(AGENT);
         System.out.println("6");
     }
+
     @Test
     @Order(7)
     @DisplayName("Booking can not be added twice")
     void testBookingCanNotBeAddedTwice() {
         assertThrows(BookingAlreadyExistsException.class, () -> {
-            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
-            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
+            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, ADMIN);
+            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, ADMIN);
         });
         System.out.println("7");
     }
+
     @Test
     @Order(8)
     @DisplayName("Booking list is corect")
@@ -149,6 +150,7 @@ class BookingServiceTest {
         assertThat(BookingService.seeBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
         System.out.println("8");
     }
+
     @Test
     @Order(9)
     @DisplayName("Booking list is empty")
@@ -170,6 +172,48 @@ class BookingServiceTest {
         );
         System.out.println("10");
     }
+    
+    @Test
+    @Order(11)
+    @DisplayName("Booking is approved")
+    void testApproveBooking() throws IncorrectDateException, AgentDoesNotExistException, BookingNotFoundException {
+        BookingService.approveBooking(AGENT, ADMIN, ADMIN, ADMIN, ADMIN);
+        Booking booking = BookingService.getAllBookings().get(0);
+        assertThat(booking.getAccept_booking()).isEqualTo("approved");
+        System.out.println("11");
+
+    }
+
+    @Test
+    @Order(12)
+    @DisplayName("Booking date for approving is incorrect")
+    void testApproveBookingNotDate() throws AgentDoesNotExistException, BookingNotFoundException {
+        assertThrows(IncorrectDateException.class, () -> {
+            BookingService.approveBooking(AGENT, "20", "31", "February", "2020");
+        });
+        System.out.println("12");
+    }
+
+    @Test
+    @Order(13)
+    @DisplayName("Booking agent for approving is incorrect")
+    void testApproveBookingNotAgent() throws IncorrectDateException, BookingNotFoundException {
+        assertThrows(AgentDoesNotExistException.class, () -> {
+            BookingService.approveBooking("notAnAgent", "20", "27", "February", "2020");
+        });
+        System.out.println("13");
+    }
+
+    @Test
+    @Order(14)
+    @DisplayName("Booking for approving is not found")
+    void testApproveBookingNotBooking() throws IncorrectDateException, AgentDoesNotExistException {
+
+            assertThrows(BookingNotFoundException.class, () -> {
+                BookingService.approveBooking(AGENT, "20", "27", "February", "2020");
+            });
+            System.out.println("14");
+
     @Test
     @Order(15)
     @DisplayName("Date is not correct ")
@@ -186,5 +230,6 @@ class BookingServiceTest {
     void testSeeBookingHistory() throws NoBookigsExectpion {
         assertThat(BookingService.seeHistoryBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
         System.out.println("16");
+
     }
 }
