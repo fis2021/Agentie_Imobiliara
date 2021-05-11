@@ -9,6 +9,7 @@ import org.loose.fis.sre.model.User;
 
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 import java.util.Objects;
 
 import static org.loose.fis.sre.services.FileSystemService.getPathToFile;
@@ -19,6 +20,7 @@ public class HouseService {
     private static ObjectRepository<House> houseRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory_house();
         Nitrite database = Nitrite.builder()
                 .filePath(getPathToHouse("house-database.db").toFile())
                 .openOrCreate();
@@ -85,7 +87,7 @@ public class HouseService {
         }
         throw new HouseDoesNotExistsException(address);
     }
-    private static void checkAddressDoesNotAlreadyExist(String address) throws AddressAlreadyExistsException {
+    public static void checkAddressDoesNotAlreadyExist(String address) throws AddressAlreadyExistsException {
         for (House house : houseRepository.find()) {
             if (Objects.equals(address, house.getAddress()))
                 throw new AddressAlreadyExistsException(address);
@@ -97,5 +99,8 @@ public class HouseService {
                 return;
         }
         throw new HouseDoesNotExistsException(address);
+    }
+    public static List<House> getAllHouses() {
+        return houseRepository.find().toList();
     }
 }

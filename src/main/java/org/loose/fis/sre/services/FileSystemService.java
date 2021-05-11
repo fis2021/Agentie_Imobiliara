@@ -8,7 +8,7 @@ public class FileSystemService {
     //user
     public static String APPLICATION_FOLDER = ".agentie_imobiliara";
 
-    private static final String HOUSE_FOLDER = ".house-database";
+    public static final String HOUSE_FOLDER = ".house-database";
 
     public static String BOOKING_FOLDER = ".booking-database";
     //user
@@ -25,7 +25,7 @@ public class FileSystemService {
 
     public static Path getPathToHouse(String... path)
     {
-        return HOUSE_HOME_PATH.resolve(Paths.get(".",path));
+        return getHouseHomeFolder().resolve(Paths.get(".",path));
     }
     public static Path getPathToBooking(String... path)
     {
@@ -40,6 +40,9 @@ public class FileSystemService {
     public static Path getBookingHomeFolder() {
         return Paths.get(USER_FOLDER, BOOKING_FOLDER);
     }
+    public static Path getHouseHomeFolder() {
+        return Paths.get(USER_FOLDER, HOUSE_FOLDER);
+    }
 
     public static void initDirectory() {
         Path applicationHomePath = getApplicationHomeFolder();
@@ -51,6 +54,11 @@ public class FileSystemService {
         Path bookingHomePath = getBookingHomeFolder();
         if(!Files.exists(bookingHomePath))
             bookingHomePath.toFile().mkdirs();
+    }
+    public static void initDirectory_house() {
+        Path houseHomePath = getHouseHomeFolder();
+        if (!Files.exists(houseHomePath))
+            houseHomePath.toFile().mkdirs();
     }
 }
 
