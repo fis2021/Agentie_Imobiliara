@@ -98,19 +98,19 @@ class BookingServiceTest {
     @Order(8)
     @DisplayName("Booking list is corect")
     void testSeeBookings() throws NoBookigsExectpion {
-        assertThat(BookingService.seeBookings(AGENT)).isEqualTo("Booking{address= Admin, day=Admin, year= Admin, hour= Admin, agent_book= Admin, special_req= Admin, accept_booking= Admin, rejection_message= Admin,, Name='Admin}\n");
+        assertThat(BookingService.seeBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
         System.out.println("8");
     }
     @Test
     @Order(9)
     @DisplayName("Booking list is empty")
-    void testSeeBookingsEmpty()  {
-    assertThrows(NoBookigsExectpion.class, () -> {
-        BookingService.seeBookings();
-    }
-    );
+    void testSeeBookingsEmpty() {
+        assertThrows(NoBookigsExectpion.class, () -> {
+                    BookingService.seeBookings("notAgent");
+                }
+        );
         System.out.println("9");
-
+    }
     @Test
     @Order(4)
     @DisplayName("Booking can not be added for an address that does not exist")
