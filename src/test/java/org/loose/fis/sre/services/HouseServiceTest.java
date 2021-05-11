@@ -1,4 +1,4 @@
-
+package org.loose.fis.sre.services;
 
 import static org.junit.jupiter.api.Assertions.*;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +20,7 @@ import static org.testfx.assertions.api.Assertions.assertThat;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 
- class AddHouseTest {
+ class HouseServiceTest {
 public static final String ADDRESS="Address";
  public static final String SIZE="Size";
  public static final String ROOMS="Rooms";
@@ -75,7 +75,7 @@ public static final String ADDRESS="Address";
    House house = HouseService.getAllHouses().get(0);
    assertThat(house).isNotNull();
    assertThat(house.getAddress()).isEqualTo(ADDRESS);
-   //assertThat(house.getSize()).isEqualTo(SIZE);
+   assertThat(house.getSize()).isEqualTo(SIZE);
    assertThat(house.getRooms()).isEqualTo(ROOMS);
    assertThat(house.getBaths()).isEqualTo(BATHS);
    assertThat(house.getFloors()).isEqualTo(FLOORS);
@@ -102,6 +102,7 @@ public static final String ADDRESS="Address";
    });
    System.out.println("4");
   }
+
  /*
   @Test
   @Order(7)
@@ -129,12 +130,12 @@ public static final String ADDRESS="Address";
     UserService.CheckNameCredentials("agent");
    });
    System.out.println("9");
-  }
+  }*/
   @Test
-  @Order(10)
-  @DisplayName("Agent list is correct")
-  void testAgentList() throws UsernameAlreadyExistsException {
-   assertThat(UserService.agents_lsit()).isEqualTo("fullName='Agent', phoneNumber='Agent'\n");
-  }
- }*/
+  @Order(5)
+  @DisplayName("House list is correct")
+  void testHouseList()  {
+   assertThat(HouseService.seeHouses()).isEqualTo("Address='Address, Size= Size, Rooms=\"Rooms, Baths=Baths, Floors=Floors, Special=Special\n");
+
+ }
 }
