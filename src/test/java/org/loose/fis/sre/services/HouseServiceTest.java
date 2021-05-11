@@ -106,7 +106,7 @@ public static final String ADDRESS="Address";
   @Test
   @Order(5)
   @DisplayName("House list is correct")
-  void testHouseList()  {
+  void testSeeHouses()  {
    assertThat(HouseService.seeHouses()).isEqualTo("Address=Address, Size= Size, Rooms= Rooms, Baths= Baths, Floors= Floors, Special= Special\n");
  }
  @Test
