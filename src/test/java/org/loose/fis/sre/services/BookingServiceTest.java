@@ -149,4 +149,14 @@ class BookingServiceTest {
         org.assertj.core.api.Assertions.assertThat(booking.getUser()).isEqualTo(AGENT);
         System.out.println("6");
     }
+    @Test
+    @Order(7)
+    @DisplayName("Booking can not be added twice")
+    void testBookingCanNotBeAddedTwice() {
+        assertThrows(BookingAlreadyExistsException.class, () -> {
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
+        });
+        System.out.println("7");
+    }
 }
