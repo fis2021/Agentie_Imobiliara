@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import org.loose.fis.sre.exceptions.*;
 import org.loose.fis.sre.model.Booking;
+import org.loose.fis.sre.model.House;
 import org.loose.fis.sre.model.User;
 
 import java.io.IOException;
@@ -17,6 +18,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingServiceTest {
     public static final String ADMIN = "admin";
     public static final String AGENT = "Agent";
+    public static final String ADDRESS="Address";
+    public static final String SIZE="Size";
+    public static final String ROOMS="Rooms";
+    public static final String BATHS="Baths";
+    public static final String FLOORS="Floors";
+    public static final String SPECIAL="Special";
 /*@BeforeEach
     void setUp() throws Exception {
         FileSystemService.BOOKING_FOLDER = ".test-booking";
@@ -42,6 +49,12 @@ class BookingServiceTest {
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
+        System.out.println("Before class");
+
+        FileSystemService.APPLICATION_FOLDER = ".test-addhouses-forbooking";
+        FileSystemService.initDirectory_house();
+        FileUtils.cleanDirectory(FileSystemService.getHouseHomeFolder().toFile());
+        HouseService.initDatabase();
         System.out.println("Before class");
     }
 
@@ -80,6 +93,7 @@ class BookingServiceTest {
         System.out.println("3");
     }
 
+
     @Test
     @Order(8)
     @DisplayName("Booking list is corect")
@@ -96,5 +110,43 @@ class BookingServiceTest {
     }
     );
         System.out.println("9");
+
+    @Test
+    @Order(4)
+    @DisplayName("Booking can not be added for an address that does not exist")
+    void testBookingForWrongAddress() {
+        assertThrows(HouseDoesNotExistsException.class, () -> {
+            HouseService.addHouse(ADDRESS, SIZE, ROOMS,BATHS,FLOORS, SPECIAL);
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+        });
+        System.out.println("4");
+    }
+    @Test
+    @Order(5)
+    @DisplayName("Booking can not be added for a date that does not exist")
+    void testBookingForWrongDate() {
+        assertThrows(IncorrectDateException.class, () -> {
+            BookingService.addBooking(ADDRESS,"31","February",ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+        });
+        System.out.println("5");
+    }
+    @Test
+    @Order(6)
+    @DisplayName("Booking is added to database")
+    void testBookingIsAddedToDatabase() throws IncorrectDateException, AgentDoesNotExistException, IncorrectNameException, BookingAlreadyExistsException, HouseDoesNotExistsException {
+        BookingService.addBooking(ADDRESS,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+        assertThat(BookingService.getAllBookings()).isNotEmpty();
+        assertThat(BookingService.getAllBookings()).size().isEqualTo(1);
+        Booking booking = BookingService.getAllBookings().get(0);
+        org.assertj.core.api.Assertions.assertThat(booking).isNotNull();
+        org.assertj.core.api.Assertions.assertThat(booking.getAddress()).isEqualTo(ADDRESS);
+        org.assertj.core.api.Assertions.assertThat(booking.getDay()).isEqualTo(ADMIN);
+        org.assertj.core.api.Assertions.assertThat(booking.getMonth()).isEqualTo(ADMIN);
+        org.assertj.core.api.Assertions.assertThat(booking.getYear()).isEqualTo(ADMIN);
+        org.assertj.core.api.Assertions.assertThat(booking.getHour()).isEqualTo(ADMIN);
+        org.assertj.core.api.Assertions.assertThat(booking.getAgent_book()).isEqualTo(AGENT);
+        org.assertj.core.api.Assertions.assertThat(booking.getSpecial_req()).isEqualTo(ADMIN);
+        org.assertj.core.api.Assertions.assertThat(booking.getUser()).isEqualTo(AGENT);
+        System.out.println("6");
     }
 }
