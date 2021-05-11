@@ -105,7 +105,7 @@ public static final String ADDRESS="Address";
 
 
  @Test
- @Order(8)
+ @Order(10)
  @DisplayName("House deleted successfully")
  void testDeleteHouse() throws HouseDoesNotExistsException{
   HouseService.deleteHouse(ADDRESS);
@@ -115,9 +115,9 @@ public static final String ADDRESS="Address";
 
 
   @Test
-  @Order(9)
+  @Order(11)
   @DisplayName("House that must be deleted is not found")
-  void testNotFoundDeleteHouse() throws HouseDoesNotExistsException{
+  void testNotFoundDeleteHouse(){
    assertThrows(HouseDoesNotExistsException.class, () -> {
     HouseService.checkAddressDoesExist(ADDRESS);
    });
@@ -148,7 +148,6 @@ public static final String ADDRESS="Address";
   @DisplayName("House list is correct")
   void testHouseList()  {
    assertThat(HouseService.seeHouses()).isEqualTo("Address=Address, Size= Size, Rooms= Rooms, Baths= Baths, Floors= Floors, Special= Special\n");
-
  }
  @Test
  @Order(6)
@@ -174,5 +173,21 @@ public static final String ADDRESS="Address";
   });
   System.out.println("7");
  }
+ @Test
+ @Order(8)
+ @DisplayName("House is found")
+ void testHouseIsFound() throws HouseDoesNotExistsException {
+  assertThat(HouseService.searchHouse(ADDRESS)).isEqualTo("Address=Address, Size= Modify, Rooms= Modify, Baths= Modify, Floors= Modify, Special= Modify");
+  System.out.println("8");
+ }
+ @Test
+ @Order(9)
+ @DisplayName("House is not found")
+ void testHouseIsNotFound(){
+  assertThrows(HouseDoesNotExistsException.class, () -> {
+   HouseService.checkAddressDoesExist("address");
+  });
+  System.out.println("9");
+ }
+ }
 
-}
