@@ -92,7 +92,8 @@ class BookingServiceTest {
         });
         System.out.println("3");
     }
-@Order(4)
+    @Test
+    @Order(4)
     @DisplayName("Booking can not be added for an address that does not exist")
     void testBookingForWrongAddress() {
         assertThrows(HouseDoesNotExistsException.class, () -> {
@@ -209,11 +210,11 @@ class BookingServiceTest {
     @DisplayName("Booking for approving is not found")
     void testApproveBookingNotBooking() throws IncorrectDateException, AgentDoesNotExistException {
 
-            assertThrows(BookingNotFoundException.class, () -> {
-                BookingService.approveBooking(AGENT, "20", "27", "February", "2020");
-            });
-            System.out.println("14");
-
+        assertThrows(BookingNotFoundException.class, () -> {
+            BookingService.approveBooking(AGENT, "20", "27", "February", "2020");
+        });
+        System.out.println("14");
+    }
     @Test
     @Order(15)
     @DisplayName("Date is not correct ")
@@ -228,7 +229,7 @@ class BookingServiceTest {
     @Order(16)
     @DisplayName("History of bookings is correct")
     void testSeeBookingHistory() throws NoBookigsExectpion {
-        assertThat(BookingService.seeHistoryBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
+        assertThat(BookingService.seeHistoryBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= approved, rejection_message= , Name='Agent}\n");
         System.out.println("16");
 
     }
