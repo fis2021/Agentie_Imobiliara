@@ -102,64 +102,6 @@ public static final String ADDRESS="Address";
    });
    System.out.println("4");
   }
- @Test
- @Order(9)
- @DisplayName("House exists")
- void checkAddressDoesExistTest()  {
-  House house = HouseService.getAllHouses().get(0);
-  assertThat(house).isNotNull();
-  assertThat(house.getAddress()).isEqualTo(ADDRESS);
-  System.out.println("9");
- }
-
- @Test
- @Order(10)
-
- @DisplayName("House does not exists")
- void  checkAddressDoesNotExistTest() {
-  assertThrows(HouseDoesNotExistsException.class, () -> {
-   HouseService.checkAddressDoesExist("notADDRESS");
-  });
-  System.out.println("10");
- }
- @Test
- @Order(11)
- @DisplayName("House deleted successfully")
- void testDeleteHouse() throws HouseDoesNotExistsException{
-  HouseService.deleteHouse(ADDRESS);
-  assertThat(HouseService.getAllHouses()).isEmpty();
-  System.out.println("11");
- }
-
-
-  @Test
-  @Order(12)
-  @DisplayName("House that must be deleted is not found")
-  void testNotFoundDeleteHouse(){
-   assertThrows(HouseDoesNotExistsException.class, () -> {
-    HouseService.checkAddressDoesExist(ADDRESS);
-   });
-   System.out.println("12");
-  }
-  /*
-  @Test
-  @Order(8)
-  @DisplayName("Username is correct")
-  void testUsernameDoesExist() {
-   assertThrows(IncorrectNameException.class, () -> {
-    UserService.checkUsername("agent");
-   });
-   System.out.println("8");
-  }
-  @Test
-  @Order(9)
-  @DisplayName("Name is correct")
-  void testNameDoesExist() {
-   assertThrows(NoBookigsExectpion.class, () -> {
-    UserService.CheckNameCredentials("agent");
-   });
-   System.out.println("9");
-  }*/
 
   @Test
   @Order(5)
@@ -207,5 +149,46 @@ public static final String ADDRESS="Address";
   });
   System.out.println("9");
  }
+ @Test
+ @Order(10)
+ @DisplayName("House exists")
+ void checkAddressDoesExistTest()  {
+  House house = HouseService.getAllHouses().get(0);
+  assertThat(house).isNotNull();
+  assertThat(house.getAddress()).isEqualTo(ADDRESS);
+  System.out.println("10");
  }
+
+ @Test
+ @Order(11)
+
+ @DisplayName("House does not exists")
+ void  checkAddressDoesNotExistTest() {
+  assertThrows(HouseDoesNotExistsException.class, () -> {
+   HouseService.checkAddressDoesExist("notADDRESS");
+  });
+  System.out.println("11");
+ }
+ @Test
+ @Order(12)
+ @DisplayName("House deleted successfully")
+ void testDeleteHouse() throws HouseDoesNotExistsException{
+  HouseService.deleteHouse(ADDRESS);
+  assertThat(HouseService.getAllHouses()).isEmpty();
+  System.out.println("12");
+ }
+
+
+ @Test
+ @Order(13)
+ @DisplayName("House that must be deleted is not found")
+ void testNotFoundDeleteHouse(){
+  assertThrows(HouseDoesNotExistsException.class, () -> {
+   HouseService.checkAddressDoesExist(ADDRESS);
+  });
+  System.out.println("13");
+ }
+
+
+}
 
