@@ -39,7 +39,7 @@ class BookingServiceTest {
     }
 
     @BeforeAll
-    static void beforeAll() throws Exception{
+    static void beforeAll() throws Exception {
         FileSystemService.BOOKING_FOLDER = ".test-booking";
         FileSystemService.initDirectory_booking();
         FileUtils.cleanDirectory(FileSystemService.getBookingHomeFolder().toFile());
@@ -71,25 +71,46 @@ class BookingServiceTest {
         assertThat(BookingService.getAllBookings()).isEmpty();
         System.out.println("1");
     }
+
     @Test
     @Order(2)
     @DisplayName("Booking can not be added for an agent that does not exist")
     void testBookingForWrongAgent() {
         assertThrows(AgentDoesNotExistException.class, () -> {
-            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,ADMIN);
+            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, ADMIN);
         });
         System.out.println("2");
     }
+
     @Test
     @Order(3)
     @DisplayName("Booking can not be added for a name that does not exist")
     void testBookingForWrongName() {
         assertThrows(IncorrectNameException.class, () -> {
-            UserService.addUser(AGENT, AGENT, AGENT,AGENT,AGENT);
-            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
+            UserService.addUser(AGENT, AGENT, AGENT, AGENT, AGENT);
+            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, ADMIN);
         });
         System.out.println("3");
     }
+
+
+    @Test
+    @Order(8)
+    @DisplayName("Booking list is corect")
+    void testSeeBookings() throws NoBookigsExectpion {
+        assertThat(BookingService.seeBookings(AGENT)).isEqualTo("Booking{address= Admin, day=Admin, year= Admin, hour= Admin, agent_book= Admin, special_req= Admin, accept_booking= Admin, rejection_message= Admin,, Name='Admin}\n");
+        System.out.println("8");
+    }
+    @Test
+    @Order(9)
+    @DisplayName("Booking list is empty")
+    void testSeeBookingsEmpty()  {
+    assertThrows(NoBookigsExectpion.class, () -> {
+        BookingService.seeBookings();
+    }
+    );
+        System.out.println("9");
+
     @Test
     @Order(4)
     @DisplayName("Booking can not be added for an address that does not exist")
