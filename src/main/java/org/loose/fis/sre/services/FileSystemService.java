@@ -8,7 +8,7 @@ public class FileSystemService {
     //user
     public static String APPLICATION_FOLDER = ".agentie_imobiliara";
 
-    public static final String HOUSE_FOLDER = ".house-database";
+    public static  String HOUSE_FOLDER = ".house-database";
 
     public static String BOOKING_FOLDER = ".booking-database";
     //user

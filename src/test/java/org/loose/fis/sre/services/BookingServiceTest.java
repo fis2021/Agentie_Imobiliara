@@ -95,23 +95,6 @@ class BookingServiceTest {
 
 
     @Test
-    @Order(8)
-    @DisplayName("Booking list is corect")
-    void testSeeBookings() throws NoBookigsExectpion {
-        assertThat(BookingService.seeBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
-        System.out.println("8");
-    }
-    @Test
-    @Order(9)
-    @DisplayName("Booking list is empty")
-    void testSeeBookingsEmpty() {
-        assertThrows(NoBookigsExectpion.class, () -> {
-                    BookingService.seeBookings("notAgent");
-                }
-        );
-        System.out.println("9");
-    }
-    @Test
     @Order(4)
     @DisplayName("Booking can not be added for an address that does not exist")
     void testBookingForWrongAddress() {
@@ -158,5 +141,50 @@ class BookingServiceTest {
             BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
         });
         System.out.println("7");
+    }
+    @Test
+    @Order(8)
+    @DisplayName("Booking list is corect")
+    void testSeeBookings() throws NoBookigsExectpion {
+        assertThat(BookingService.seeBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
+        System.out.println("8");
+    }
+    @Test
+    @Order(9)
+    @DisplayName("Booking list is empty")
+    void testSeeBookingsEmpty() {
+        assertThrows(NoBookigsExectpion.class, () -> {
+                    BookingService.seeBookings("notAgent");
+                }
+        );
+        System.out.println("9");
+    }
+    @Test
+    @Order(10)
+    @DisplayName("Booking does not already exist")
+    void testBookingDesNotAlreadyExist() {
+        assertThrows(BookingAlreadyExistsException.class, () -> {
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
+            BookingService.checkBookingDoesNotAlreadyExist(ADMIN,ADMIN,ADMIN,ADMIN,AGENT);
+                }
+        );
+        System.out.println("10");
+    }
+    @Test
+    @Order(15)
+    @DisplayName("Date is not correct ")
+    void testCheckDate() {
+        assertThrows(IncorrectDateException.class, () -> {
+                    BookingService.addBooking(ADDRESS,"31","June",ADMIN,ADMIN,AGENT,ADMIN,AGENT);
+                }
+        );
+        System.out.println("15");
+    }
+    @Test
+    @Order(16)
+    @DisplayName("History of bookings is correct")
+    void testSeeBookingHistory() throws NoBookigsExectpion {
+        assertThat(BookingService.seeHistoryBookings(AGENT)).isEqualTo("Booking{address= Address\n, day=admin, month=admin, year= admin, hour= admin\n, agent_book= Agent, special_req= admin\n, accept_booking= not responded, rejection_message=  , Name='Agent}\n");
+        System.out.println("16");
     }
 }
