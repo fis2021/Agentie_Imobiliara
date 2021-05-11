@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class BookingServiceTest {
     public static final String ADMIN = "admin";
     public static final String AGENT = "Agent";
-    public static final String ADDRESS = "Address";
-    public static final String SIZE = "Size";
-    public static final String ROOMS = "Rooms";
-    public static final String BATHS = "Baths";
-    public static final String FLOORS = "Floors";
-    public static final String SPECIAL = "Special";
+    public static final String ADDRESS="Address";
+    public static final String SIZE="Size";
+    public static final String ROOMS="Rooms";
+    public static final String BATHS="Baths";
+    public static final String FLOORS="Floors";
+    public static final String SPECIAL="Special";
 /*@BeforeEach
     void setUp() throws Exception {
         FileSystemService.BOOKING_FOLDER = ".test-booking";
@@ -92,31 +92,33 @@ class BookingServiceTest {
         });
         System.out.println("3");
     }
+
+
+
+    @Test
 @Order(4)
     @DisplayName("Booking can not be added for an address that does not exist")
     void testBookingForWrongAddress() {
         assertThrows(HouseDoesNotExistsException.class, () -> {
-            HouseService.addHouse(ADDRESS, SIZE, ROOMS, BATHS, FLOORS, SPECIAL);
-            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, AGENT);
+            HouseService.addHouse(ADDRESS, SIZE, ROOMS,BATHS,FLOORS, SPECIAL);
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,AGENT);
         });
         System.out.println("4");
     }
-
     @Test
     @Order(5)
     @DisplayName("Booking can not be added for a date that does not exist")
     void testBookingForWrongDate() {
         assertThrows(IncorrectDateException.class, () -> {
-            BookingService.addBooking(ADDRESS, "31", "February", ADMIN, ADMIN, AGENT, ADMIN, AGENT);
+            BookingService.addBooking(ADDRESS,"31","February",ADMIN,ADMIN,AGENT,ADMIN,AGENT);
         });
         System.out.println("5");
     }
-
     @Test
     @Order(6)
     @DisplayName("Booking is added to database")
     void testBookingIsAddedToDatabase() throws IncorrectDateException, AgentDoesNotExistException, IncorrectNameException, BookingAlreadyExistsException, HouseDoesNotExistsException {
-        BookingService.addBooking(ADDRESS, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, AGENT);
+        BookingService.addBooking(ADDRESS,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,AGENT);
         assertThat(BookingService.getAllBookings()).isNotEmpty();
         assertThat(BookingService.getAllBookings()).size().isEqualTo(1);
         Booking booking = BookingService.getAllBookings().get(0);
@@ -131,14 +133,13 @@ class BookingServiceTest {
         org.assertj.core.api.Assertions.assertThat(booking.getUser()).isEqualTo(AGENT);
         System.out.println("6");
     }
-
     @Test
     @Order(7)
     @DisplayName("Booking can not be added twice")
     void testBookingCanNotBeAddedTwice() {
         assertThrows(BookingAlreadyExistsException.class, () -> {
-            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, ADMIN);
-            BookingService.addBooking(ADMIN, ADMIN, ADMIN, ADMIN, ADMIN, AGENT, ADMIN, ADMIN);
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
+            BookingService.addBooking(ADMIN,ADMIN,ADMIN,ADMIN,ADMIN,AGENT,ADMIN,ADMIN);
         });
         System.out.println("7");
     }
@@ -209,10 +210,11 @@ class BookingServiceTest {
     @DisplayName("Booking for approving is not found")
     void testApproveBookingNotBooking() throws IncorrectDateException, AgentDoesNotExistException {
 
-            assertThrows(BookingNotFoundException.class, () -> {
-                BookingService.approveBooking(AGENT, "20", "27", "February", "2020");
-            });
-            System.out.println("14");
+        assertThrows(BookingNotFoundException.class, () -> {
+            BookingService.approveBooking(AGENT, "20", "27", "February", "2020");
+        });
+        System.out.println("14");
+    }
 
     @Test
     @Order(15)
@@ -232,4 +234,45 @@ class BookingServiceTest {
         System.out.println("16");
 
     }
+    @Test
+    @Order(17)
+    @DisplayName("Booking rejected succefully")
+    void testRejectBooking() throws IncorrectDateException, AgentDoesNotExistException, BookingNotFoundException
+    {
+        BookingService.rejectBooking(AGENT, ADMIN, ADMIN, ADMIN, ADMIN, "onereason");
+        Booking booking = BookingService.getAllBookings().get(0);
+        assertThat(booking.getAccept_booking()).isEqualTo("rejectet");
+        System.out.println("17");
+    }
+    @Test
+    @Order(18)
+    @DisplayName("Booking date for rejecting is incorrect")
+    void testRejectBookingNotDate() throws AgentDoesNotExistException, BookingNotFoundException {
+        assertThrows(IncorrectDateException.class, () -> {
+            BookingService.rejectBooking(AGENT, "20", "31", "February", "2020", "onereason");
+        });
+        System.out.println("18");
+    }
+    @Test
+    @Order(19)
+    @DisplayName("Booking agent for rejecting is incorrect")
+    void testRejectBookingNotAgent() throws IncorrectDateException, BookingNotFoundException {
+        assertThrows(AgentDoesNotExistException.class, () -> {
+            BookingService.rejectBooking("notAnAgent", "20", "27", "February", "2020", "thereason");
+        });
+        System.out.println("19");
+    }
+    @Test
+    @Order(20)
+    @DisplayName("Booking for rejecting is not found")
+    void testRejectBookingNotBooking() throws IncorrectDateException, AgentDoesNotExistException {
+
+        assertThrows(BookingNotFoundException.class, () -> {
+            BookingService.rejectBooking(AGENT, "20", "27", "February", "2020", "one reason");
+        });
+        System.out.println("20");
+    }
+
+
 }
+
