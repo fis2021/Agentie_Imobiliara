@@ -44,7 +44,7 @@ public static final String ADDRESS="Address";
 
   @BeforeAll
   static void beforeAll() throws Exception{
-   FileSystemService.APPLICATION_FOLDER = ".test-addhouses";
+   FileSystemService.HOUSE_FOLDER = ".test-addhouses";
    FileSystemService.initDirectory_house();
    FileUtils.cleanDirectory(FileSystemService.getHouseHomeFolder().toFile());
    HouseService.initDatabase();
