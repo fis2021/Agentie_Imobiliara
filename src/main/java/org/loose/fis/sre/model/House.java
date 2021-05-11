@@ -29,6 +29,10 @@ public class House {
         return Address;
     }
 
+    public String getSize() {
+        return Size;
+    }
+
     public String getRooms() {
         return Rooms;
     }
