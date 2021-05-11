@@ -27,7 +27,7 @@ public static final String ADDRESS="Address";
  public static final String BATHS="Baths";
  public static final String FLOORS="Floors";
  public static final String SPECIAL="Special";
-
+ public static final String MOD="Modify";
    /*@BeforeEach
     void setUp() throws Exception {
         FileSystemService.APPLICATION_FOLDER = ".test-registration";
@@ -135,7 +135,31 @@ public static final String ADDRESS="Address";
   @Order(5)
   @DisplayName("House list is correct")
   void testHouseList()  {
-   assertThat(HouseService.seeHouses()).isEqualTo("Address='Address, Size= Size, Rooms=\"Rooms, Baths=Baths, Floors=Floors, Special=Special\n");
+   assertThat(HouseService.seeHouses()).isEqualTo("Address=Address, Size= Size, Rooms= Rooms, Baths= Baths, Floors= Floors, Special= Special\n");
 
+ }
+ @Test
+ @Order(6)
+ @DisplayName("House can be edited")
+ void testEditHouse() throws HouseDoesNotExistsException {
+  HouseService.editHouse(ADDRESS,MOD,MOD,MOD,MOD,MOD);
+  House house = HouseService.getAllHouses().get(0);
+  org.assertj.core.api.Assertions.assertThat(house.getAddress()).isEqualTo(ADDRESS);
+  org.assertj.core.api.Assertions.assertThat(house.getSize()).isEqualTo(MOD);
+  org.assertj.core.api.Assertions.assertThat(house.getRooms()).isEqualTo(MOD);
+  org.assertj.core.api.Assertions.assertThat(house.getBaths()).isEqualTo(MOD);
+  org.assertj.core.api.Assertions.assertThat(house.getFloors()).isEqualTo(MOD);
+  org.assertj.core.api.Assertions.assertThat(house.getSpecial()).isEqualTo(MOD);
+  System.out.println("6");
+ }
+ @Test
+ @Order(7)
+ @DisplayName("House can't be edited because it is not found")
+ void testHouseEditNotFound() {
+  assertThrows(HouseDoesNotExistsException.class, () -> {
+   HouseService.editHouse("address",MOD,MOD,MOD,MOD,MOD);
+   HouseService.checkAddressDoesExist("address");
+  });
+  System.out.println("7");
  }
 }
