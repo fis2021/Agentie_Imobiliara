@@ -89,11 +89,11 @@ public class House {
     @Override
     public String toString() {
         return
-                "Address='" + Address  +
+                "Address=" + Address  +
                 ", Size= " + Size +
-                ", Rooms=\"" + Rooms +
-                ", Baths=" + Baths +
-                ", Floors=" + Floors +
-                ", Special=" + Special;
+                ", Rooms= " + Rooms +
+                ", Baths= " + Baths +
+                ", Floors= " + Floors +
+                ", Special= " + Special;
     }
 }
