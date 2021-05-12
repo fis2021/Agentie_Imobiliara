@@ -33,17 +33,17 @@ public class SeeBookingsTest {
     }*/
     @BeforeEach
     void setUp() throws Exception {
-        FileSystemService.BOOKING_FOLDER = ".test-see-bookings";
+        FileSystemService.BOOKING_FOLDER = ".test-see-bookingss";
         FileSystemService.initDirectory_booking();
         FileUtils.cleanDirectory(FileSystemService.getBookingHomeFolder().toFile());
         BookingService.initDatabase();
 
-        FileSystemService.APPLICATION_FOLDER = ".test-see-history_user";
+        FileSystemService.APPLICATION_FOLDER = ".test-see-history_users";
         FileSystemService.initDirectory();
         FileUtils.cleanDirectory(FileSystemService.getApplicationHomeFolder().toFile());
         UserService.initDatabase();
 
-        FileSystemService.HOUSE_FOLDER = ".test-see-history_house";
+        FileSystemService.HOUSE_FOLDER = ".test-see-history_houses";
         FileSystemService.initDirectory_house();
         FileUtils.cleanDirectory(FileSystemService.getHouseHomeFolder().toFile());
         HouseService.initDatabase();
@@ -69,9 +69,9 @@ public class SeeBookingsTest {
 
         robot.clickOn("#approveBotton");
         assertThat(robot.lookup("#editbooking").queryText()).hasText(
-                String.format("A booking for %s on         does not exist!" ,AGENT));
+                String.format("A booking for %s on null null null null does not exist!" ,AGENT));
         robot.clickOn("#rejectBotton");
         assertThat(robot.lookup("#editbooking").queryText()).hasText(
-                String.format("A booking for %s on         does not exist!" ,AGENT));
+                String.format("A booking for %s on null null null null does not exist!" ,AGENT));
     }
 }
