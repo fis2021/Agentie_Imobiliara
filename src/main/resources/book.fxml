@@ -15,35 +15,35 @@
     <Text id="sub-title-text" text="Book a visit" GridPane.columnIndex="1" GridPane.columnSpan="2"
           GridPane.rowIndex="1"/>
     <Label text="Name:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField fx:id="username" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <TextField fx:id="username" id="name" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <TextField fx:id="address" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <TextField fx:id="address" id="address" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
     <Label text="Day:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
 
-    <ChoiceBox fx:id="day" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+    <ChoiceBox fx:id="day" id="day" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
     </ChoiceBox>
     <Label text="Month:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
 
-    <ChoiceBox fx:id="month" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+    <ChoiceBox fx:id="month" id="month" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
     </ChoiceBox>
     <Label text="Year:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
 
-    <ChoiceBox fx:id="year" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+    <ChoiceBox fx:id="year" id="year" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
     </ChoiceBox>
     <Label text="Hour:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
 
-    <ChoiceBox fx:id="hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
+    <ChoiceBox fx:id="hour" id="hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
     </ChoiceBox>
     <Label text="Agent name:" GridPane.columnIndex="0" GridPane.rowIndex="9"/>
-    <TextField fx:id="agent_book" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+    <TextField fx:id="agent_book" id="agent_book" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
     <Label text="Special Requirements:" GridPane.columnIndex="0" GridPane.rowIndex="10"/>
-    <TextField fx:id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
-    <Text fx:id="make_bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+    <TextField fx:id="special_req" id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <Text fx:id="make_bookingMessage" id="bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="11">
-        <Button  onAction="#handleBookingAction" text="Save booking"/>
+        <Button  onAction="#handleBookingAction" id="bookingButton" text="Save booking"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="2">
-        <Button  onAction="#handleSeeAgents" text="See list of agents"/>
+        <Button  onAction="#handleSeeAgents" id="seeAgentsButton" text="See list of agents"/>
     </HBox>
-    <Text fx:id="agentsMessage" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+    <Text fx:id="agentsMessage" id="agentsMessage" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
 </GridPane>
