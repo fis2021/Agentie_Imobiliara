@@ -37,7 +37,7 @@ class SeeHousesTest {
     }*/
     @BeforeEach
     void setUp() throws Exception {
-        FileSystemService.HOUSE_FOLDER = ".test-see-deletehouse";
+        FileSystemService.HOUSE_FOLDER = ".test-see-houses";
         FileSystemService.initDirectory_house();
         FileUtils.cleanDirectory(FileSystemService.getHouseHomeFolder().toFile());
         HouseService.initDatabase();
@@ -50,17 +50,19 @@ class SeeHousesTest {
     void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("see_houses.fxml"));
         primaryStage.setTitle("Agentie Imobiliara");
-        primaryStage.setScene(new Scene(root, 600, 575));
+        primaryStage.setScene(new Scene(root, 800, 775));
         primaryStage.show();
     }
     @Test
     void TestSeeHouse(FxRobot robot) {
         robot.clickOn("#seehouses");
-        assertThat(robot.lookup("#title-text").queryText()).hasText(
+        assertThat(robot.lookup("#seehousemesage").queryText()).hasText(
                 String.format("Address=Address, Size= Address, Rooms= Address, Baths= Address, Floors= Address, Special= Address\n" +
-                        "Address=Address2, Size= Address2, Rooms= Address2, Baths= Address2, Floors= Address2, Special= Address2"));
+                        "Address=Address2, Size= Address2, Rooms= Address2, Baths= Address2, Floors= Address2, Special= Address2\n"));
+        robot.clickOn("#address");
+        robot.write(ADDRESS);
         robot.clickOn("#searchButton");
-        assertThat(robot.lookup("#deletehouseMessage").queryText()).hasText(
+        assertThat(robot.lookup("#seehousemesage").queryText()).hasText(
                 String.format("Address=Address, Size= Address, Rooms= Address, Baths= Address, Floors= Address, Special= Address"));
 
 
