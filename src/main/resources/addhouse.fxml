@@ -13,26 +13,26 @@
     </padding>
     <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
     <Text id="title-text1" text="Add a house" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-    <TextField fx:id="Address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <TextField fx:id="Address" id="address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
-    <TextField fx:id="Size" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <TextField fx:id="Size" id="size" GridPane.columnIndex="1"  GridPane.rowIndex="4"/>
 
     <Label text="Size of the house (m^2):" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
-    <TextField fx:id="Rooms" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <TextField fx:id="Rooms" id="rooms" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
     <Label text="Number of rooms:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
-    <TextField fx:id="Baths" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+    <TextField fx:id="Baths" id="baths" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
 
     <Label text="Number of baths:" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
-    <TextField fx:id="Floors" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+    <TextField fx:id="Floors" id="floors" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
 
     <Label text="Number of floors:" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
-    <TextField fx:id="Special" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+    <TextField fx:id="Special"  id="special" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
 
     <Label text="Any special features:" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
-    <Text fx:id="addhouseMessage" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <Text fx:id="addhouseMessage" GridPane.columnIndex="1" id="addhouseMessage" GridPane.rowIndex="10"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="9">
-        <Button  onAction="#handleAddHouseAction" text="Save house"/>
+        <Button  onAction="#handleAddHouseAction" id="addButton" text="Save house"/>
     </HBox>
 </GridPane>
