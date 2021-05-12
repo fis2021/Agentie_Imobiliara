@@ -14,10 +14,10 @@
 
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
-        <Button onAction="#handleSeeHouses" prefHeight="26.0" prefWidth="188.0" text="See houses on the market" />
+        <Button onAction="#handleSeeHouses" id="seehouses" prefHeight="26.0" prefWidth="188.0" text="See houses on the market" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-        <Button onAction="#handleSearchHouseAction" prefHeight="26.0" prefWidth="188.0" text="Search a house by address" />
+        <Button onAction="#handleSearchHouseAction" id="searchButton" prefHeight="26.0" prefWidth="188.0" text="Search a house by address" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="5">
         <Button onAction="#handlebook" prefHeight="26.0" prefWidth="188.0" text="Book a visit for a house" />
