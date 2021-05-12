@@ -14,19 +14,19 @@
 
     <Text id="title-text" text="See your bookings" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
     <Text id="title-text" text="Approve/Reject a booking" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-   <Text fx:id="seebooksmesage" GridPane.columnIndex="1" GridPane.rowIndex="20"/>
-    <Text fx:id="editbooking" GridPane.columnIndex="1" GridPane.rowIndex="24"/>
+   <Text fx:id="seebooksmesage" id="seebookingMessage"  GridPane.columnIndex="1" GridPane.rowIndex="20"/>
+    <Text fx:id="editbooking" id="editbooking" GridPane.columnIndex="1" GridPane.rowIndex="24"/>
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
-        <Button   onAction="#handleSeeBookings" text="See your bookings"/>
+        <Button   onAction="#handleSeeBookings" id="SeeBookingsButton" text="See your bookings"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="14">
-        <Button   onAction="#handleApprove" text="Approve"/>
+        <Button   onAction="#handleApprove" id="approveBotton" text="Approve"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="14">
-        <Button   onAction="#handleReject" text="Reject"/>
+        <Button   onAction="#handleReject"  id="rejectBotton" text="Reject"/>
     </HBox>
-    <TextField fx:id="Name" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <TextField fx:id="Name"  id="name" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
 
 
