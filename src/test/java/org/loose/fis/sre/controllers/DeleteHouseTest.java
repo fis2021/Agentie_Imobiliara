@@ -54,9 +54,11 @@ class DeleteHouseTest {
     void TestAddHouse(FxRobot robot) {
         robot.clickOn("#address");
         robot.write(ADDRESS);
+
+        robot.clickOn("#searchButton");
+        assertThat(robot.lookup("#deletehouseMessage").queryText()).hasText(
+                String.format("Address=Address, Size= Address, Rooms= Address, Baths= Address, Floors= Address, Special= Address"));
         robot.clickOn("#deleteButton");
-
-
         assertThat(robot.lookup("#deletehouseMessage").queryText()).hasText(
                 String.format("House  successfully deleted!"));
 
