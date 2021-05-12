@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -12,14 +12,14 @@
     </padding>
     <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
     <Text id="title-text1" text="Delete a house" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-    <TextField fx:id="Address" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-    <Text fx:id="deletehouseMessage" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    <TextField fx:id="Address" id="address"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <Text fx:id="deletehouseMessage"  GridPane.columnIndex="1" id="deletehouseMessage" GridPane.rowIndex="5"/>
 
     <Label text="Address:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
-        <Button  onAction="#handleDeleteHouseAction" text="Delete house"/>
+        <Button  onAction="#handleDeleteHouseAction" id="deleteButton"  text="Delete house"/>
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
-        <Button   onAction="#handleSearchHouseAction" text="Search house"/>
+        <Button   onAction="#handleSearchHouseAction"  text="Search house"/>
     </HBox>
 </GridPane>
