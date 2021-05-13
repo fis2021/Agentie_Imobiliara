@@ -1,24 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
-          vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="org.loose.fis.sre.controllers.SeeHistoryofBookingsController">
+<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700" style="-fx-background-color: FAEBD7;" vgap="11" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.SeeHistoryofBookingsController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
-    <Text id="title-text" text="See history of bookings" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-    <Text fx:id="seebooksmesage" id="seebookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <Text id="title-text" text="Agentie Imobiliara" textAlignment="CENTER" wrappingWidth="130.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+      <font>
+         <Font size="16.0" />
+      </font></Text>
+    <Text id="title-text" text="See history of bookings" textAlignment="CENTER" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+      <font>
+         <Font size="14.0" />
+      </font></Text>
+    <Text id="seebookingMessage" fx:id="seebooksmesage" GridPane.columnIndex="1" GridPane.rowIndex="10" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-        <Button   onAction="#handleSeeHystoryofBookings" id="SeeHistoryButton" text="See your bookings"/>
+        <Button id="SeeHistoryButton" onAction="#handleSeeHystoryofBookings" style="-fx-background-color: DEB887;" text="See your bookings" />
     </HBox>
-    <TextField fx:id="Name" id="name" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+    <TextField id="name" fx:id="Name" style="-fx-background-color: DEB887;" GridPane.columnIndex="2" GridPane.rowIndex="3" />
 
-    <Label text="Name:"  GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+    <Label text="Name:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 </GridPane>

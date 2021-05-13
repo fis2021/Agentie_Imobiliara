@@ -5,27 +5,29 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700" vgap="11" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="org.loose.fis.sre.controllers.SeeHousesController">
+<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700" style="-fx-background-color: FAEBD7;" vgap="11" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.SeeHousesController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+    <Text id="title-text" text="Agentie Imobiliara" textAlignment="CENTER" wrappingWidth="186.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+      <font>
+         <Font size="18.0" />
+      </font></Text>
 
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="3">
-        <Button onAction="#handleSeeHouses" id="seehouses" prefHeight="26.0" prefWidth="188.0" text="See houses on the market" />
+        <Button id="seehouses" onAction="#handleSeeHouses" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: DEB887;" text="See houses on the market" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="4">
-        <Button onAction="#handleSearchHouseAction" id="searchButton" prefHeight="26.0" prefWidth="188.0" text="Search a house by address" />
+        <Button id="searchButton" onAction="#handleSearchHouseAction" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: DEB887;" text="Search a house by address" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="0" GridPane.rowIndex="5">
-        <Button onAction="#handlebook" prefHeight="26.0" prefWidth="188.0" text="Book a visit for a house" />
+        <Button onAction="#handlebook" prefHeight="26.0" prefWidth="188.0" style="-fx-background-color: DEB887;" text="Book a visit for a house" />
     </HBox>
-    <TextField fx:id="Address" id="address" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+    <TextField id="address" fx:id="Address" style="-fx-background-color: DEB887;" GridPane.columnIndex="2" GridPane.rowIndex="4" />
 
     <Label text="Address:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-    <Text fx:id="seehousemesage"  id="seehousemesage" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+    <Text id="seehousemesage" fx:id="seehousemesage" GridPane.columnIndex="1" GridPane.rowIndex="10" />
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
