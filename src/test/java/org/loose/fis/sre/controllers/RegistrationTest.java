@@ -44,7 +44,6 @@ class RegistrationTest {
     }
     @Test
     void testRegistration(FxRobot robot) {
-        //robot.clickOn("#opneRegister");
         robot.clickOn("#fullName");
         robot.write(ADMIN);
         robot.clickOn("#phone");

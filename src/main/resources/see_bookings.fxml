@@ -1,12 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
-          vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="org.loose.fis.sre.controllers.SeeBookingsController">
+<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700" style="-fx-background-color: FAEBD7;" vgap="11" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.SeeBookingsController">
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
@@ -14,43 +13,75 @@
 
     <Text id="title-text" text="See your bookings" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
     <Text id="title-text" text="Approve/Reject a booking" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
-   <Text fx:id="seebooksmesage" id="seebookingMessage"  GridPane.columnIndex="1" GridPane.rowIndex="20"/>
-    <Text fx:id="editbooking" id="editbooking" GridPane.columnIndex="1" GridPane.rowIndex="24"/>
+   <Text id="seebookingMessage" fx:id="seebooksmesage" GridPane.columnIndex="1" GridPane.rowIndex="20" />
+    <Text id="editbooking" fx:id="editbooking" GridPane.columnIndex="1" GridPane.rowIndex="24" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
-        <Button   onAction="#handleSeeBookings" id="SeeBookingsButton" text="See your bookings"/>
+        <Button id="SeeBookingsButton" onAction="#handleSeeBookings" text="See your bookings" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="14">
-        <Button   onAction="#handleApprove" id="approveBotton" text="Approve"/>
+        <Button id="approveBotton" onAction="#handleApprove" text="Approve" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="14">
-        <Button   onAction="#handleReject"  id="rejectBotton" text="Reject"/>
+        <Button id="rejectBotton" onAction="#handleReject" text="Reject" />
     </HBox>
-    <TextField fx:id="Name"  id="name" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <TextField id="name" fx:id="Name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 
 
 
 
 
-    <Label text="Hour:" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+    <Label text="Hour:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
     <ChoiceBox fx:id="Hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
     </ChoiceBox>
-    <Label text="Day:" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
+    <Label text="Day:" GridPane.columnIndex="2" GridPane.rowIndex="8" />
     <ChoiceBox fx:id="Day" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
     </ChoiceBox>
 
-    <Label text="Month:" GridPane.columnIndex="1" GridPane.rowIndex="10"/>
+    <Label text="Month:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
     <ChoiceBox fx:id="Month" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
     </ChoiceBox>
 
 
-    <Label text="Year:" GridPane.columnIndex="2" GridPane.rowIndex="10"/>
+    <Label text="Year:" GridPane.columnIndex="2" GridPane.rowIndex="10" />
     <ChoiceBox fx:id="Year" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
     </ChoiceBox>
-    <TextField fx:id="Reason" GridPane.columnIndex="1" GridPane.rowIndex="13"/>
+    <TextField fx:id="Reason" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
-    <Label text="RejectionReason:" GridPane.columnIndex="1" GridPane.rowIndex="12"/>
+    <Label text="RejectionReason:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 
 </GridPane>

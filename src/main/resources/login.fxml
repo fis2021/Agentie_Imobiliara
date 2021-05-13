@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.geometry.Insets?>
+
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.*?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" alignment="center" hgap="11" prefHeight="500" prefWidth="700"
-          vgap="11" xmlns="http://javafx.com/javafx/10.0.2-internal"
-          fx:controller="org.loose.fis.sre.controllers.LoginController">
+<GridPane alignment="center" hgap="11" prefHeight="500" prefWidth="700" style="-fx-background-color: FAEBD7;" vgap="11" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.loose.fis.sre.controllers.LoginController">
     <padding>
-        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <Text id="title-text" text="Agentie Imobiliara" GridPane.columnIndex="0" GridPane.columnSpan="2"
-          GridPane.rowIndex="0"/>
-    <Text id="title-text" text="Login" GridPane.columnIndex="1" GridPane.columnSpan="2"
-          GridPane.rowIndex="1"/>
-    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <Text id="title-text" text="Agentie Imobiliara" textAlignment="CENTER" wrappingWidth="231.7890625" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+      <font>
+         <Font size="18.0" />
+      </font></Text>
+    <Text id="title-text" text="Login" textAlignment="CENTER" wrappingWidth="163.3798828125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+      <font>
+         <Font size="14.0" />
+      </font></Text>
+    <Label text="Username:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
 
-    <TextField fx:id="usernameField" id="username" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    <TextField id="username" fx:id="usernameField" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+    <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 
-    <PasswordField fx:id="passwordField" id="password" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+    <PasswordField id="password" fx:id="passwordField" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <Label text="Role:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
 
-    <ChoiceBox fx:id="role"  id="role" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+    <ChoiceBox id="role" fx:id="role" prefWidth="150.0" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="5">
     </ChoiceBox>
-    <Text fx:id="loginMessage" id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="9"/>
+    <Text id="loginMessage" fx:id="loginMessage" GridPane.columnIndex="1" GridPane.rowIndex="9" />
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="7">
-        <Button  onAction="#handleLoginAction"  id="loginButton" text="Login"/>
+        <Button id="loginButton" onAction="#handleLoginAction" style="-fx-background-color: DEB887;" text="Login" />
     </HBox>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 </GridPane>
