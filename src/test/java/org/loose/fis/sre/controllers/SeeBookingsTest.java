@@ -60,7 +60,7 @@ public class SeeBookingsTest {
         primaryStage.show();
     }
     @Test
-    void TestSeeHistoryBooking(FxRobot robot) {
+    void TestSeeBooking(FxRobot robot) {
         robot.clickOn("#name");
         robot.write(AGENT);
         robot.clickOn("#SeeBookingsButton");
