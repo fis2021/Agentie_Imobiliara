@@ -9,23 +9,29 @@
     <padding>
         <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
     </padding>
-    <Text id="title-text" text="Agentie Imobiliara" wrappingWidth="124.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
+    <Text id="title-text" text="Agentie Imobiliara" textAlignment="CENTER" wrappingWidth="170.125" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+      <font>
+         <Font size="18.0" />
+      </font></Text>
 
-    <Text id="title-text" text="See your bookings" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+    <Text id="title-text" text="See your bookings" textAlignment="CENTER" wrappingWidth="162.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1">
+      <font>
+         <Font size="14.0" />
+      </font></Text>
     <Text id="title-text" text="Approve/Reject a booking" wrappingWidth="124.125" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5" />
    <Text id="seebookingMessage" fx:id="seebooksmesage" GridPane.columnIndex="1" GridPane.rowIndex="20" />
     <Text id="editbooking" fx:id="editbooking" GridPane.columnIndex="1" GridPane.rowIndex="24" />
 
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4">
-        <Button id="SeeBookingsButton" onAction="#handleSeeBookings" text="See your bookings" />
+        <Button id="SeeBookingsButton" onAction="#handleSeeBookings" style="-fx-background-color: DEB887;" text="See your bookings" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="14">
-        <Button id="approveBotton" onAction="#handleApprove" text="Approve" />
+        <Button id="approveBotton" onAction="#handleApprove" style="-fx-background-color: DEB887;" text="Approve" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="14">
-        <Button id="rejectBotton" onAction="#handleReject" text="Reject" />
+        <Button id="rejectBotton" onAction="#handleReject" style="-fx-background-color: DEB887;" text="Reject" />
     </HBox>
-    <TextField id="name" fx:id="Name" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+    <TextField id="name" fx:id="Name" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="4" />
 
 
 
@@ -33,21 +39,21 @@
 
 
     <Label text="Hour:" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-    <ChoiceBox fx:id="Hour" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="9">
+    <ChoiceBox fx:id="Hour" prefWidth="150.0" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="9">
     </ChoiceBox>
     <Label text="Day:" GridPane.columnIndex="2" GridPane.rowIndex="8" />
-    <ChoiceBox fx:id="Day" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="9">
+    <ChoiceBox fx:id="Day" prefWidth="150.0" style="-fx-background-color: DEB887;" GridPane.columnIndex="2" GridPane.rowIndex="9">
     </ChoiceBox>
 
     <Label text="Month:" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-    <ChoiceBox fx:id="Month" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
+    <ChoiceBox fx:id="Month" prefWidth="150.0" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="11">
     </ChoiceBox>
 
 
     <Label text="Year:" GridPane.columnIndex="2" GridPane.rowIndex="10" />
-    <ChoiceBox fx:id="Year" prefWidth="150.0" GridPane.columnIndex="2" GridPane.rowIndex="11">
+    <ChoiceBox fx:id="Year" prefWidth="150.0" style="-fx-background-color: DEB887;" GridPane.columnIndex="2" GridPane.rowIndex="11">
     </ChoiceBox>
-    <TextField fx:id="Reason" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+    <TextField fx:id="Reason" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="13" />
 
     <Label text="RejectionReason:" GridPane.columnIndex="1" GridPane.rowIndex="12" />
    <columnConstraints>
