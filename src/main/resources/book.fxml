@@ -38,12 +38,12 @@
     <ChoiceBox id="hour" fx:id="hour" prefWidth="150.0" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="8">
     </ChoiceBox>
     <Label text="Agent name:" GridPane.columnIndex="0" GridPane.rowIndex="9" />
-    <TextField id="agent_book" fx:id="agent_book" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+    <TextField id="agent_book" fx:id="agent_book" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="9" />
     <Label text="Special Requirements:" GridPane.columnIndex="0" GridPane.rowIndex="10" />
-    <TextField id="special_req" fx:id="special_req" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+    <TextField id="special_req" fx:id="special_req" style="-fx-background-color: DEB887;" GridPane.columnIndex="1" GridPane.rowIndex="10" />
     <Text id="bookingMessage" fx:id="make_bookingMessage" GridPane.columnIndex="1" GridPane.rowIndex="12" />
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="11">
-        <Button id="bookingButton" onAction="#handleBookingAction" text="Save booking" />
+        <Button id="bookingButton" onAction="#handleBookingAction" style="-fx-background-color: DEB887;" text="Save booking" />
     </HBox>
     <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="3" GridPane.rowIndex="2">
         <Button id="seeAgentsButton" onAction="#handleSeeAgents" style="-fx-background-color: DEB887;" text="See list of agents" />
